@@ -1,0 +1,5 @@
+{"count": 1000, "index_s": 0.979, "batch": 2000, "shards": 1, "replicas": 0, "bytes": 201956}
+{"count": 10000, "index_s": 0.684, "batch": 2000, "shards": 1, "replicas": 0, "bytes": 1913965}
+{"count": 100000, "index_s": 2.871, "batch": 2000, "shards": 1, "replicas": 0, "bytes": 19098286}
+{"count": 1000000, "index_s": 21.048, "batch": 2000, "shards": 1, "replicas": 0, "bytes": 158497927}
+{"count": 10000000, "index_s": 230.18, "batch": 2000, "shards": 1, "replicas": 0, "bytes": 2005761510}

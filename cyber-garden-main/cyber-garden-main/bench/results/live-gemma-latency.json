@@ -1,0 +1,584 @@
+{
+  "started_at_utc": "2026-11-21T01:46:03.367875+00:00",
+  "team": "team-06",
+  "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+  "model": "google/gemma-4-31B-it",
+  "configuration_source": "root .env",
+  "success_ms": [
+    3344,
+    2359,
+    2203,
+    2218,
+    3171,
+    2796,
+    4375,
+    4281,
+    1890,
+    4656
+  ],
+  "latency_ms": {
+    "p50": 2796.672,
+    "p95": 4659.914,
+    "p99": 4659.914
+  },
+  "errors": [],
+  "cases": [
+    {
+      "name": "Три категории и синонимы",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Компьютерный стол не больше метра, удобный стул и настольный светильник. Таганрог. На всё 15 000 рублей."
+        }
+      ],
+      "success": true,
+      "extract_ms": 3344,
+      "prompt_tokens": 1145,
+      "completion_tokens": 87,
+      "dialogue_wall_ms": 3358.9999999967404,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T01:46:03.438818+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T01:46:03.398004+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[{\"category\":\"table\",\"text\":\"компьютерный\"},{\"category\":\"chair\",\"text\":\"удобный\"},{\"category\":\"lamp\",\"text\":\"настольный\"}]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R8ukYXSxEHSLECNtqanY5uJU",
+            "object": "chat.completion",
+            "created": 1795225567,
+            "usage": {
+              "prompt_tokens": 1145,
+              "completion_tokens": 87,
+              "total_tokens": 1232,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 3344.134
+        }
+      ]
+    },
+    {
+      "name": "Десятичные метры и сокращение суммы",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол уже 1,05 м. Азов. Бюджет 12,5 тыс."
+        }
+      ],
+      "success": true,
+      "extract_ms": 2359,
+      "prompt_tokens": 1128,
+      "completion_tokens": 51,
+      "dialogue_wall_ms": 2358.9999999967404,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T01:46:10.401164+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T01:46:10.383907+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":12500,\"categories\":[\"table\"],\"width_cm\":[[\"lt\",105]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RAdZa7QHeD2vb2LU3Hln3JYB",
+            "object": "chat.completion",
+            "created": 1795225573,
+            "usage": {
+              "prompt_tokens": 1128,
+              "completion_tokens": 51,
+              "total_tokens": 1179,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2354.576
+        }
+      ]
+    },
+    {
+      "name": "Миллиметры и две границы",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Нужен стол от 850 до 1050 мм в Таганроге до 5000 ₽."
+        }
+      ],
+      "success": true,
+      "extract_ms": 2203,
+      "prompt_tokens": 1133,
+      "completion_tokens": 57,
+      "dialogue_wall_ms": 2203.0000000086147,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T01:46:17.406115+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T01:46:17.381495+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":5000,\"categories\":[\"table\"],\"width_cm\":[[\"gte\",85],[\"lte\",105]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R4g5zpjusuYz3mkr7DGyWal3",
+            "object": "chat.completion",
+            "created": 1795225580,
+            "usage": {
+              "prompt_tokens": 1133,
+              "completion_tokens": 57,
+              "total_tokens": 1190,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2197.342
+        }
+      ]
+    },
+    {
+      "name": "Отсутствие регулировки",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стул без регулировки по высоте в Азове. Полторы тысячи."
+        }
+      ],
+      "success": true,
+      "extract_ms": 2218,
+      "prompt_tokens": 1122,
+      "completion_tokens": 43,
+      "dialogue_wall_ms": 2217.9999999934807,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T01:46:24.398780+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T01:46:24.380996+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":1500,\"categories\":[\"chair\"],\"width_cm\":[],\"adjustable_height\":false,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RLgGzCztK6QDZRA5HOH70p5W",
+            "object": "chat.completion",
+            "created": 1795225587,
+            "usage": {
+              "prompt_tokens": 1122,
+              "completion_tokens": 43,
+              "total_tokens": 1165,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2222.589
+        }
+      ]
+    },
+    {
+      "name": "Только мягкая характеристика",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Азов. Стол, желательно до 90 см. Бюджет 6500."
+        }
+      ],
+      "success": true,
+      "extract_ms": 3171,
+      "prompt_tokens": 1127,
+      "completion_tokens": 49,
+      "dialogue_wall_ms": 3171.0000000020955,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T01:46:31.411412+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T01:46:31.383615+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":6500,\"categories\":[\"table\"],\"width_cm\":[[\"lte\",90]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RaR23WQ7lLJ5XMgWfXpLETJV",
+            "object": "chat.completion",
+            "created": 1795225595,
+            "usage": {
+              "prompt_tokens": 1127,
+              "completion_tokens": 49,
+              "total_tokens": 1176,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 3169.14
+        }
+      ]
+    },
+    {
+      "name": "Кельвины и сокращённый бюджет",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Лампа 3000 К. Ростов-на-Дону. До 4к."
+        }
+      ],
+      "success": true,
+      "extract_ms": 2796,
+      "prompt_tokens": 1127,
+      "completion_tokens": 56,
+      "dialogue_wall_ms": 2796.0000000020955,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T01:46:38.415475+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T01:46:38.386084+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"rostov-na-donu\",\"budget_rub\":4000,\"categories\":[\"lamp\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[[\"eq\",3000]],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R4FYSrqoxNpAOmhB11DKXjHr",
+            "object": "chat.completion",
+            "created": 1795225601,
+            "usage": {
+              "prompt_tokens": 1127,
+              "completion_tokens": 56,
+              "total_tokens": 1183,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2796.672
+        }
+      ]
+    },
+    {
+      "name": "Короткий ответ на вопрос",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол и лампа. В Азове."
+        },
+        {
+          "role": "assistant",
+          "text": "Какой бюджет на весь комплект?"
+        },
+        {
+          "role": "user",
+          "text": "Две тысячи."
+        }
+      ],
+      "success": true,
+      "extract_ms": 4375,
+      "prompt_tokens": 1138,
+      "completion_tokens": 45,
+      "dialogue_wall_ms": 4375.0,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T01:46:45.414495+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T01:46:45.389696+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":2000,\"categories\":[\"table\",\"lamp\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RtzhmYue6Ibxvu7deeBnMh3z",
+            "object": "chat.completion",
+            "created": 1795225610,
+            "usage": {
+              "prompt_tokens": 1138,
+              "completion_tokens": 45,
+              "total_tokens": 1183,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 4363.978
+        }
+      ]
+    },
+    {
+      "name": "Замена только верхней границы",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол от 80 до 100 см в Азове, бюджет 5000 ₽."
+        },
+        {
+          "role": "assistant",
+          "text": "Нашёл комплект."
+        },
+        {
+          "role": "user",
+          "text": "Стол теперь не шире 1,2 м."
+        }
+      ],
+      "success": true,
+      "extract_ms": 4281,
+      "prompt_tokens": 1156,
+      "completion_tokens": 50,
+      "dialogue_wall_ms": 4280.999999988126,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T01:46:52.408423+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T01:46:52.383147+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":5000,\"categories\":[\"table\"],\"width_cm\":[[\"lte\",120]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RA0voLGPBQDiYOH1bbs0cf6S",
+            "object": "chat.completion",
+            "created": 1795225617,
+            "usage": {
+              "prompt_tokens": 1156,
+              "completion_tokens": 50,
+              "total_tokens": 1206,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 4280.15
+        }
+      ]
+    },
+    {
+      "name": "Снятие ограничения и удаление товара",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа в Азове. Бюджет 8000 ₽."
+        },
+        {
+          "role": "assistant",
+          "text": "Нашёл комплект."
+        },
+        {
+          "role": "user",
+          "text": "Ширина не важна. Без кресла и лампы."
+        }
+      ],
+      "success": true,
+      "extract_ms": 1890,
+      "prompt_tokens": 1160,
+      "completion_tokens": 43,
+      "dialogue_wall_ms": 1890.0000000139698,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T01:46:59.407954+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T01:46:59.382057+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":8000,\"categories\":[\"table\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RHOWDLUEF7b1QEAm7pcqP6RU",
+            "object": "chat.completion",
+            "created": 1795225621,
+            "usage": {
+              "prompt_tokens": 1160,
+              "completion_tokens": 43,
+              "total_tokens": 1203,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 1893.829
+        }
+      ]
+    },
+    {
+      "name": "Изменить город и бюджет",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол до 100 см и кресло. Азов. Бюджет 6к."
+        },
+        {
+          "role": "assistant",
+          "text": "Стол и кресло за 4200 ₽."
+        },
+        {
+          "role": "user",
+          "text": "Теперь в Таганроге, бюджет 7000."
+        }
+      ],
+      "success": true,
+      "extract_ms": 4656,
+      "prompt_tokens": 1166,
+      "completion_tokens": 53,
+      "dialogue_wall_ms": 4655.999999988126,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T01:47:06.416163+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T01:47:06.392228+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":7000,\"categories\":[\"table\",\"chair\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RG03NtOkbZBQKa8AYGOf3zPy",
+            "object": "chat.completion",
+            "created": 1795225631,
+            "usage": {
+              "prompt_tokens": 1166,
+              "completion_tokens": 53,
+              "total_tokens": 1219,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 4659.914
+        }
+      ]
+    }
+  ],
+  "successes": 10,
+  "failures": 0,
+  "prompt_tokens": 11402,
+  "completion_tokens": 534,
+  "total_dialogue_ms": 31307.99999998999
+}

@@ -1,0 +1,105 @@
+test_polish_off_topic_wording_preserves_context (tests.test_dialogue_flow.DialogueFlowTest.test_polish_off_topic_wording_preserves_context) ... 127.0.0.1 - - [21/Nov/2026 09:58:44] "POST /api/buy HTTP/1.1" 200 -
+
+  test_polish_off_topic_wording_preserves_context (tests.test_dialogue_flow.DialogueFlowTest.test_polish_off_topic_wording_preserves_context) (text='Скажи рецепт блинчиков') ... FAIL
+127.0.0.1 - - [21/Nov/2026 09:58:44] "POST /api/buy HTTP/1.1" 200 -
+  test_polish_off_topic_wording_preserves_context (tests.test_dialogue_flow.DialogueFlowTest.test_polish_off_topic_wording_preserves_context) (text='Посчитай теорему Пифагора') ... FAIL
+127.0.0.1 - - [21/Nov/2026 09:58:44] "POST /api/buy HTTP/1.1" 200 -
+  test_polish_off_topic_wording_preserves_context (tests.test_dialogue_flow.DialogueFlowTest.test_polish_off_topic_wording_preserves_context) (text='Расскажи анекдот') ... FAIL
+127.0.0.1 - - [21/Nov/2026 09:58:44] "POST /api/buy HTTP/1.1" 200 -
+  test_polish_off_topic_wording_preserves_context (tests.test_dialogue_flow.DialogueFlowTest.test_polish_off_topic_wording_preserves_context) (text='Какая сегодня погода?') ... FAIL
+test_polish_unsupported_goods_have_safe_specific_wording (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unsupported_goods_have_safe_specific_wording) ... 127.0.0.1 - - [21/Nov/2026 09:58:44] "POST /api/buy HTTP/1.1" 200 -
+
+  test_polish_unsupported_goods_have_safe_specific_wording (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unsupported_goods_have_safe_specific_wording) (text='Найди холодильник') ... FAIL
+127.0.0.1 - - [21/Nov/2026 09:58:44] "POST /api/buy HTTP/1.1" 200 -
+  test_polish_unsupported_goods_have_safe_specific_wording (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unsupported_goods_have_safe_specific_wording) (text='Нужен диван') ... FAIL
+127.0.0.1 - - [21/Nov/2026 09:58:44] "POST /api/buy HTTP/1.1" 200 -
+  test_polish_unsupported_goods_have_safe_specific_wording (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unsupported_goods_have_safe_specific_wording) (text='Хочу купить шкаф') ... FAIL
+test_polish_unrecognized_word_does_not_invent_a_product_name (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unrecognized_word_does_not_invent_a_product_name) ... 127.0.0.1 - - [21/Nov/2026 09:58:44] "POST /api/buy HTTP/1.1" 200 -
+FAIL
+test_polish_supported_absent_lamp_still_no_match (tests.test_dialogue_flow.DialogueFlowTest.test_polish_supported_absent_lamp_still_no_match) ... 127.0.0.1 - - [21/Nov/2026 09:58:44] "POST /api/buy HTTP/1.1" 200 -
+ok
+test_stage_timings_exclude_gemma_from_search_and_log_no_input (tests.test_dialogue_flow.DialogueFlowTest.test_stage_timings_exclude_gemma_from_search_and_log_no_input) ... ERROR
+
+======================================================================
+ERROR: test_stage_timings_exclude_gemma_from_search_and_log_no_input (tests.test_dialogue_flow.DialogueFlowTest.test_stage_timings_exclude_gemma_from_search_and_log_no_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 333, in test_stage_timings_exclude_gemma_from_search_and_log_no_input
+    with patch.object(demo, "select", side_effect=delayed_select), patch.object(demo.sys, "stderr", logs):
+                                                                                ^^^^^^^^
+AttributeError: module 'buyer.demo' has no attribute 'sys'
+
+======================================================================
+FAIL: test_polish_off_topic_wording_preserves_context (tests.test_dialogue_flow.DialogueFlowTest.test_polish_off_topic_wording_preserves_context) (text='Скажи рецепт блинчиков')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 291, in test_polish_off_topic_wording_preserves_context
+    self.assertIn("не отвечаю на вопросы по другим темам", wording)
+AssertionError: 'не отвечаю на вопросы по другим темам' not found in 'Я помогаю подбирать товары из каталога. Уточните, что вы хотите приобрести: например, стол, кресло или лампу.'
+
+======================================================================
+FAIL: test_polish_off_topic_wording_preserves_context (tests.test_dialogue_flow.DialogueFlowTest.test_polish_off_topic_wording_preserves_context) (text='Посчитай теорему Пифагора')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 291, in test_polish_off_topic_wording_preserves_context
+    self.assertIn("не отвечаю на вопросы по другим темам", wording)
+AssertionError: 'не отвечаю на вопросы по другим темам' not found in 'Я помогаю подбирать товары из каталога. Уточните, что вы хотите приобрести: например, стол, кресло или лампу.'
+
+======================================================================
+FAIL: test_polish_off_topic_wording_preserves_context (tests.test_dialogue_flow.DialogueFlowTest.test_polish_off_topic_wording_preserves_context) (text='Расскажи анекдот')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 291, in test_polish_off_topic_wording_preserves_context
+    self.assertIn("не отвечаю на вопросы по другим темам", wording)
+AssertionError: 'не отвечаю на вопросы по другим темам' not found in 'Я помогаю подбирать товары из каталога. Уточните, что вы хотите приобрести: например, стол, кресло или лампу.'
+
+======================================================================
+FAIL: test_polish_off_topic_wording_preserves_context (tests.test_dialogue_flow.DialogueFlowTest.test_polish_off_topic_wording_preserves_context) (text='Какая сегодня погода?')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 291, in test_polish_off_topic_wording_preserves_context
+    self.assertIn("не отвечаю на вопросы по другим темам", wording)
+AssertionError: 'не отвечаю на вопросы по другим темам' not found in 'Я помогаю подбирать товары из каталога. Уточните, что вы хотите приобрести: например, стол, кресло или лампу.'
+
+======================================================================
+FAIL: test_polish_unsupported_goods_have_safe_specific_wording (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unsupported_goods_have_safe_specific_wording) (text='Найди холодильник')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 303, in test_polish_unsupported_goods_have_safe_specific_wording
+    self.assertEqual(body["response"]["status"], "clarify")
+AssertionError: 'ok' != 'clarify'
+- ok
++ clarify
+
+
+======================================================================
+FAIL: test_polish_unsupported_goods_have_safe_specific_wording (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unsupported_goods_have_safe_specific_wording) (text='Нужен диван')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 305, in test_polish_unsupported_goods_have_safe_specific_wording
+    self.assertIn(name, wording)
+AssertionError: 'Диваны' not found in 'Что подобрать из каталога — стол, кресло или лампу? Можно выбрать несколько.'
+
+======================================================================
+FAIL: test_polish_unsupported_goods_have_safe_specific_wording (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unsupported_goods_have_safe_specific_wording) (text='Хочу купить шкаф')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 305, in test_polish_unsupported_goods_have_safe_specific_wording
+    self.assertIn(name, wording)
+AssertionError: 'Шкафы' not found in 'Что подобрать из каталога — стол, кресло или лампу? Можно выбрать несколько.'
+
+======================================================================
+FAIL: test_polish_unrecognized_word_does_not_invent_a_product_name (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unrecognized_word_does_not_invent_a_product_name)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 314, in test_polish_unrecognized_word_does_not_invent_a_product_name
+    self.assertEqual(body["response"]["status"], "clarify")
+AssertionError: 'ok' != 'clarify'
+- ok
++ clarify
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.652s
+
+FAILED (failures=8, errors=1)

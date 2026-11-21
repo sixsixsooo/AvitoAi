@@ -1,0 +1,62 @@
+test_add_category_budget_and_city_edits (tests.test_dialogue_flow.DialogueFlowTest.test_add_category_budget_and_city_edits) ... ok
+test_bare_item_price_is_not_total_budget (tests.test_dialogue_flow.DialogueFlowTest.test_bare_item_price_is_not_total_budget) ... ok
+test_cancel_last_preference_does_not_resurrect_from_model (tests.test_dialogue_flow.DialogueFlowTest.test_cancel_last_preference_does_not_resurrect_from_model) ... ok
+test_composition_edits_and_clear_width (tests.test_dialogue_flow.DialogueFlowTest.test_composition_edits_and_clear_width) ... ok
+test_full_bundle_is_never_partial_or_over_budget (tests.test_dialogue_flow.DialogueFlowTest.test_full_bundle_is_never_partial_or_over_budget) ... ok
+test_measurement_change_reassembles_current_bundle (tests.test_dialogue_flow.DialogueFlowTest.test_measurement_change_reassembles_current_bundle) ... ok
+test_missing_in_city_and_hard_attribute_before_budget_question (tests.test_dialogue_flow.DialogueFlowTest.test_missing_in_city_and_hard_attribute_before_budget_question) ... ok
+test_missing_supported_category_before_budget_question (tests.test_dialogue_flow.DialogueFlowTest.test_missing_supported_category_before_budget_question) ... ok
+test_model_semantics_preserve_state_for_unlisted_off_topic_language (tests.test_dialogue_flow.DialogueFlowTest.test_model_semantics_preserve_state_for_unlisted_off_topic_language) ... 127.0.0.1 - - [21/Nov/2026 10:00:42] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 32, "resolve_ms": 32.18, "search_ms": 0.0, "total_ms": 32.931}
+ok
+test_new_dialogue_resets_even_if_model_repeats_old_state (tests.test_dialogue_flow.DialogueFlowTest.test_new_dialogue_resets_even_if_model_repeats_old_state) ... ok
+test_off_topic_preserves_budget_and_wishes_resolved_only_by_gemma (tests.test_dialogue_flow.DialogueFlowTest.test_off_topic_preserves_budget_and_wishes_resolved_only_by_gemma) ... ok
+test_off_topic_preserves_state_and_resume_works_through_web (tests.test_dialogue_flow.DialogueFlowTest.test_off_topic_preserves_state_and_resume_works_through_web) ... 127.0.0.1 - - [21/Nov/2026 10:00:43] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 15, "resolve_ms": 20.966, "search_ms": 0.074, "total_ms": 21.24}
+127.0.0.1 - - [21/Nov/2026 10:00:43] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 15, "resolve_ms": 21.322, "search_ms": 0.0, "total_ms": 21.522}
+127.0.0.1 - - [21/Nov/2026 10:00:43] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 47, "resolve_ms": 41.618, "search_ms": 0.121, "total_ms": 42.151}
+ok
+test_off_topic_through_real_cli (tests.test_dialogue_flow.DialogueFlowTest.test_off_topic_through_real_cli) ... ok
+test_polish_off_topic_wording_preserves_context (tests.test_dialogue_flow.DialogueFlowTest.test_polish_off_topic_wording_preserves_context) ... 127.0.0.1 - - [21/Nov/2026 10:00:44] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 47, "resolve_ms": 47.69, "search_ms": 0.0, "total_ms": 48.045}
+127.0.0.1 - - [21/Nov/2026 10:00:44] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 15, "resolve_ms": 22.185, "search_ms": 0.0, "total_ms": 22.442}
+127.0.0.1 - - [21/Nov/2026 10:00:44] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 32, "resolve_ms": 23.376, "search_ms": 0.0, "total_ms": 23.57}
+127.0.0.1 - - [21/Nov/2026 10:00:44] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 31, "resolve_ms": 23.308, "search_ms": 0.0, "total_ms": 23.499}
+ok
+test_polish_supported_absent_lamp_still_no_match (tests.test_dialogue_flow.DialogueFlowTest.test_polish_supported_absent_lamp_still_no_match) ... 127.0.0.1 - - [21/Nov/2026 10:00:44] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 31, "resolve_ms": 27.858, "search_ms": 0.03, "total_ms": 28.081}
+ok
+test_polish_unrecognized_word_does_not_invent_a_product_name (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unrecognized_word_does_not_invent_a_product_name) ... 127.0.0.1 - - [21/Nov/2026 10:00:44] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 15, "resolve_ms": 28.118, "search_ms": 0.0, "total_ms": 28.339}
+ok
+test_polish_unsupported_goods_have_safe_specific_wording (tests.test_dialogue_flow.DialogueFlowTest.test_polish_unsupported_goods_have_safe_specific_wording) ... 127.0.0.1 - - [21/Nov/2026 10:00:44] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 32, "resolve_ms": 22.347, "search_ms": 0.0, "total_ms": 22.514}
+127.0.0.1 - - [21/Nov/2026 10:00:44] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 31, "resolve_ms": 23.231, "search_ms": 0.0, "total_ms": 23.481}
+127.0.0.1 - - [21/Nov/2026 10:00:44] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 31, "resolve_ms": 35.131, "search_ms": 0.0, "total_ms": 35.312}
+ok
+test_search_error_is_technical_not_no_match (tests.test_dialogue_flow.DialogueFlowTest.test_search_error_is_technical_not_no_match) ... 127.0.0.1 - - [21/Nov/2026 10:00:44] "POST /api/buy HTTP/1.1" 503 -
+{"event": "buyer_stage_latency", "status": 503, "gemma_ms": 16, "resolve_ms": 25.582, "search_ms": 0.051, "total_ms": 25.79}
+ok
+test_stage_timings_exclude_gemma_from_search_and_log_no_input (tests.test_dialogue_flow.DialogueFlowTest.test_stage_timings_exclude_gemma_from_search_and_log_no_input) ... FAIL
+test_table_alias_and_accessory_do_not_replace_composition (tests.test_dialogue_flow.DialogueFlowTest.test_table_alias_and_accessory_do_not_replace_composition) ... ok
+test_unsupported_item_is_clarify_not_catalog_absence (tests.test_dialogue_flow.DialogueFlowTest.test_unsupported_item_is_clarify_not_catalog_absence) ... ok
+
+======================================================================
+FAIL: test_stage_timings_exclude_gemma_from_search_and_log_no_input (tests.test_dialogue_flow.DialogueFlowTest.test_stage_timings_exclude_gemma_from_search_and_log_no_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 343, in test_stage_timings_exclude_gemma_from_search_and_log_no_input
+    self.assertGreaterEqual(timings["resolve_ms"] + 1, timings["gemma_ms"])
+AssertionError: 123.092 not greater than or equal to 125.0
+
+----------------------------------------------------------------------
+Ran 21 tests in 12.563s
+
+FAILED (failures=1)

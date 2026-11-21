@@ -1,0 +1,141 @@
+{
+  "started_at_utc": "2026-11-21T07:16:11.460376+00:00",
+  "team": "team-06",
+  "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+  "model": "google/gemma-4-31B-it",
+  "configuration_source": "root .env",
+  "complete": true,
+  "planned": 2,
+  "executed": 2,
+  "passed": 2,
+  "errors": 0,
+  "successful_real_http_generations": 2,
+  "http_attempts": 2,
+  "stages_ms": {
+    "gemma_ms": {
+      "p50": 37496.367,
+      "p95": 45194.207,
+      "p99": 45194.207
+    },
+    "resolve_ms": {
+      "p50": 37501.302,
+      "p95": 45196.27,
+      "p99": 45196.27
+    },
+    "search_ms": {
+      "p50": 0.101,
+      "p95": 0.349,
+      "p99": 0.349
+    },
+    "total_ms": {
+      "p50": 37501.746,
+      "p95": 45197.227,
+      "p99": 45197.227
+    }
+  },
+  "stage_max_ms": {
+    "gemma_ms": 45194.207,
+    "resolve_ms": 45196.27,
+    "search_ms": 0.349,
+    "total_ms": 45197.227
+  },
+  "search_performed_ms": {
+    "p50": 0.101,
+    "p95": 0.349,
+    "p99": 0.349
+  },
+  "search_skipped_count": 0,
+  "latency_30_70s_reproduced": true,
+  "requests_over_30s": [
+    "organizer_single_table",
+    "organizer_full_bundle"
+  ],
+  "clock": "perf_counter for all nested Web stages; existing ModelTrace clock unchanged",
+  "gemma_definition": "extract call including preparation, actual gateway request and response parsing; no search",
+  "resolve_definition": "full resolve including Gemma; nested, not additive to gemma_ms",
+  "total_definition": "handler start through response serialization, immediately before sending headers/body",
+  "privacy": {
+    "request_text_saved": false,
+    "authorization_saved": false,
+    "response_body_saved": false
+  },
+  "mock_measurements_included": false,
+  "cases": [
+    {
+      "case_id": "organizer_single_table",
+      "expected_status": "ok",
+      "real_gemma": true,
+      "catalogue_kind": "organizer",
+      "catalogue_records": 111,
+      "client_wall_ms": 37503.536,
+      "http_status": 200,
+      "gemma_ms": 37496.367,
+      "resolve_ms": 37501.302,
+      "search_ms": 0.101,
+      "total_ms": 37501.746,
+      "model_trace_elapsed_ms": 37484,
+      "response_status": "ok",
+      "listing_ids": [
+        [
+          "demo-1-1-10"
+        ],
+        [
+          "demo-1-1-04"
+        ],
+        [
+          "demo-1-1-02"
+        ]
+      ],
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:16:11.516381+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "case_id": "organizer_full_bundle",
+      "expected_status": "ok",
+      "real_gemma": true,
+      "catalogue_kind": "organizer",
+      "catalogue_records": 111,
+      "client_wall_ms": 45200.036,
+      "http_status": 200,
+      "gemma_ms": 45194.207,
+      "resolve_ms": 45196.27,
+      "search_ms": 0.349,
+      "total_ms": 45197.227,
+      "model_trace_elapsed_ms": 45203,
+      "response_status": "ok",
+      "listing_ids": [
+        [
+          "demo-1-1-10",
+          "demo-1-2-05",
+          "demo-1-3-04"
+        ],
+        [
+          "demo-1-1-10",
+          "demo-1-2-05",
+          "demo-1-3-09"
+        ],
+        [
+          "demo-1-1-10",
+          "demo-1-2-05",
+          "demo-1-3-01"
+        ]
+      ],
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:16:49.038805+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ]
+    }
+  ]
+}

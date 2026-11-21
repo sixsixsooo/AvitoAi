@@ -1,0 +1,147 @@
+test_add_category_budget_and_city_edits (tests.test_dialogue_flow.DialogueFlowTest.test_add_category_budget_and_city_edits) ... ok
+test_bare_item_price_is_not_total_budget (tests.test_dialogue_flow.DialogueFlowTest.test_bare_item_price_is_not_total_budget) ...
+  test_bare_item_price_is_not_total_budget (tests.test_dialogue_flow.DialogueFlowTest.test_bare_item_price_is_not_total_budget) (text='стул 1400') ... FAIL
+  test_bare_item_price_is_not_total_budget (tests.test_dialogue_flow.DialogueFlowTest.test_bare_item_price_is_not_total_budget) (text='стул таганрог 1400') ... FAIL
+  test_bare_item_price_is_not_total_budget (tests.test_dialogue_flow.DialogueFlowTest.test_bare_item_price_is_not_total_budget) (text='стол 1400') ... FAIL
+test_cancel_last_preference_does_not_resurrect_from_model (tests.test_dialogue_flow.DialogueFlowTest.test_cancel_last_preference_does_not_resurrect_from_model) ... FAIL
+test_composition_edits_and_clear_width (tests.test_dialogue_flow.DialogueFlowTest.test_composition_edits_and_clear_width) ...
+  test_composition_edits_and_clear_width (tests.test_dialogue_flow.DialogueFlowTest.test_composition_edits_and_clear_width) (text='неважно, какая ширина') ... FAIL
+test_full_bundle_is_never_partial_or_over_budget (tests.test_dialogue_flow.DialogueFlowTest.test_full_bundle_is_never_partial_or_over_budget) ... ok
+test_measurement_change_reassembles_current_bundle (tests.test_dialogue_flow.DialogueFlowTest.test_measurement_change_reassembles_current_bundle) ... ok
+test_missing_in_city_and_hard_attribute_before_budget_question (tests.test_dialogue_flow.DialogueFlowTest.test_missing_in_city_and_hard_attribute_before_budget_question) ...
+  test_missing_in_city_and_hard_attribute_before_budget_question (tests.test_dialogue_flow.DialogueFlowTest.test_missing_in_city_and_hard_attribute_before_budget_question) (text='Стол в Таганроге') ... FAIL
+  test_missing_in_city_and_hard_attribute_before_budget_question (tests.test_dialogue_flow.DialogueFlowTest.test_missing_in_city_and_hard_attribute_before_budget_question) (text='Стол не шире 90 см в Таганроге') ... FAIL
+test_missing_supported_category_before_budget_question (tests.test_dialogue_flow.DialogueFlowTest.test_missing_supported_category_before_budget_question) ... FAIL
+test_new_dialogue_resets_even_if_model_repeats_old_state (tests.test_dialogue_flow.DialogueFlowTest.test_new_dialogue_resets_even_if_model_repeats_old_state) ... FAIL
+test_off_topic_preserves_state_and_resume_works_through_web (tests.test_dialogue_flow.DialogueFlowTest.test_off_topic_preserves_state_and_resume_works_through_web) ... 127.0.0.1 - - [21/Nov/2026 07:03:38] "POST /api/buy HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 07:03:38] "POST /api/buy HTTP/1.1" 200 -
+FAIL
+test_off_topic_through_real_cli (tests.test_dialogue_flow.DialogueFlowTest.test_off_topic_through_real_cli) ... FAIL
+test_search_error_is_technical_not_no_match (tests.test_dialogue_flow.DialogueFlowTest.test_search_error_is_technical_not_no_match) ... 127.0.0.1 - - [21/Nov/2026 07:03:39] "POST /api/buy HTTP/1.1" 503 -
+ok
+test_table_alias_and_accessory_do_not_replace_composition (tests.test_dialogue_flow.DialogueFlowTest.test_table_alias_and_accessory_do_not_replace_composition) ... ok
+test_unsupported_item_is_clarify_not_catalog_absence (tests.test_dialogue_flow.DialogueFlowTest.test_unsupported_item_is_clarify_not_catalog_absence) ... ok
+
+======================================================================
+FAIL: test_bare_item_price_is_not_total_budget (tests.test_dialogue_flow.DialogueFlowTest.test_bare_item_price_is_not_total_budget) (text='стул 1400')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 161, in test_bare_item_price_is_not_total_budget
+    self.assertEqual(response["status"], "clarify")
+AssertionError: 'ok' != 'clarify'
+- ok
++ clarify
+
+
+======================================================================
+FAIL: test_bare_item_price_is_not_total_budget (tests.test_dialogue_flow.DialogueFlowTest.test_bare_item_price_is_not_total_budget) (text='стул таганрог 1400')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 161, in test_bare_item_price_is_not_total_budget
+    self.assertEqual(response["status"], "clarify")
+AssertionError: 'ok' != 'clarify'
+- ok
++ clarify
+
+
+======================================================================
+FAIL: test_bare_item_price_is_not_total_budget (tests.test_dialogue_flow.DialogueFlowTest.test_bare_item_price_is_not_total_budget) (text='стол 1400')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 161, in test_bare_item_price_is_not_total_budget
+    self.assertEqual(response["status"], "clarify")
+AssertionError: 'ok' != 'clarify'
+- ok
++ clarify
+
+
+======================================================================
+FAIL: test_cancel_last_preference_does_not_resurrect_from_model (tests.test_dialogue_flow.DialogueFlowTest.test_cancel_last_preference_does_not_resurrect_from_model)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 194, in test_cancel_last_preference_does_not_resurrect_from_model
+    self.assertEqual(state.preferences, ())
+AssertionError: Tuples differ: (Preference(category='table', text='деревянный', attribute=None),) != ()
+
+First tuple contains 1 additional elements.
+First extra element 0:
+Preference(category='table', text='деревянный', attribute=None)
+
+- (Preference(category='table', text='деревянный', attribute=None),)
++ ()
+
+======================================================================
+FAIL: test_composition_edits_and_clear_width (tests.test_dialogue_flow.DialogueFlowTest.test_composition_edits_and_clear_width) (text='неважно, какая ширина')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 173, in test_composition_edits_and_clear_width
+    self.assertEqual(bool(state.requirements.width_cm), width)
+AssertionError: True != False
+
+======================================================================
+FAIL: test_missing_in_city_and_hard_attribute_before_budget_question (tests.test_dialogue_flow.DialogueFlowTest.test_missing_in_city_and_hard_attribute_before_budget_question) (text='Стол в Таганроге')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 221, in test_missing_in_city_and_hard_attribute_before_budget_question
+    self.assertEqual(response["status"], "no_match")
+AssertionError: 'clarify' != 'no_match'
+- clarify
++ no_match
+
+
+======================================================================
+FAIL: test_missing_in_city_and_hard_attribute_before_budget_question (tests.test_dialogue_flow.DialogueFlowTest.test_missing_in_city_and_hard_attribute_before_budget_question) (text='Стол не шире 90 см в Таганроге')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 221, in test_missing_in_city_and_hard_attribute_before_budget_question
+    self.assertEqual(response["status"], "no_match")
+AssertionError: 'clarify' != 'no_match'
+- clarify
++ no_match
+
+
+======================================================================
+FAIL: test_missing_supported_category_before_budget_question (tests.test_dialogue_flow.DialogueFlowTest.test_missing_supported_category_before_budget_question)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 211, in test_missing_supported_category_before_budget_question
+    self.assertEqual(response["status"], "no_match")
+AssertionError: 'clarify' != 'no_match'
+- clarify
++ no_match
+
+
+======================================================================
+FAIL: test_new_dialogue_resets_even_if_model_repeats_old_state (tests.test_dialogue_flow.DialogueFlowTest.test_new_dialogue_resets_even_if_model_repeats_old_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 200, in test_new_dialogue_resets_even_if_model_repeats_old_state
+    self.assertIsNone(state.requirements.city_id)
+AssertionError: 'taganrog' is not None
+
+======================================================================
+FAIL: test_off_topic_preserves_state_and_resume_works_through_web (tests.test_dialogue_flow.DialogueFlowTest.test_off_topic_preserves_state_and_resume_works_through_web)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 119, in test_off_topic_preserves_state_and_resume_works_through_web
+    self.assertEqual(aside["response"]["status"], "clarify")
+AssertionError: 'ok' != 'clarify'
+- ok
++ clarify
+
+
+======================================================================
+FAIL: test_off_topic_through_real_cli (tests.test_dialogue_flow.DialogueFlowTest.test_off_topic_through_real_cli)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 134, in test_off_topic_through_real_cli
+    self.assertEqual(response["status"], "clarify")
+AssertionError: 'ok' != 'clarify'
+- ok
++ clarify
+
+
+----------------------------------------------------------------------
+Ran 14 tests in 11.854s
+
+FAILED (failures=11)

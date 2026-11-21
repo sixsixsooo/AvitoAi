@@ -1,0 +1,14 @@
+test_off_topic_preserves_budget_and_wishes_resolved_only_by_gemma (tests.test_dialogue_flow.DialogueFlowTest.test_off_topic_preserves_budget_and_wishes_resolved_only_by_gemma) ... FAIL
+
+======================================================================
+FAIL: test_off_topic_preserves_budget_and_wishes_resolved_only_by_gemma (tests.test_dialogue_flow.DialogueFlowTest.test_off_topic_preserves_budget_and_wishes_resolved_only_by_gemma)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 151, in test_off_topic_preserves_budget_and_wishes_resolved_only_by_gemma
+    self.assertEqual(state.requirements, expected)
+AssertionError: Requi[34 chars]_rub=None, categories=('table',), width_cm=(),[43 chars]k=()) != Requi[34 chars]_rub=2500, categories=('table',), width_cm=(),[43 chars]k=())
+
+----------------------------------------------------------------------
+Ran 1 test in 0.048s
+
+FAILED (failures=1)

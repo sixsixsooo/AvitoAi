@@ -1,0 +1,26 @@
+{
+  "started_at_utc": "2026-11-21T06:10:52.960299+00:00",
+  "team": "team-06",
+  "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+  "model": "google/gemma-4-31B-it",
+  "configuration_source": "root .env",
+  "planned": 36,
+  "executed": 36,
+  "passed": 36,
+  "requirements_passed": 36,
+  "preferences_passed": 36,
+  "transport_errors": 0,
+  "gateway_latency_ms": {
+    "p50": 2310.412,
+    "p95": 3860.822,
+    "p99": 4469.636
+  },
+  "tokens_in": 46313,
+  "tokens_out": 2125,
+  "local_search_ms": {
+    "p50": 0.083,
+    "p95": 8.94,
+    "p99": 9.629
+  },
+  "failures": []
+}

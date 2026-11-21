@@ -1,0 +1,5 @@
+PASS stale cards disappear while a new request is pending
+PASS no_match displays an explanation outside raw JSON
+PASS equal verified results are described honestly
+PASS reset button clears history, cards and evidence
+PASS typed new dialogue starts an isolated request

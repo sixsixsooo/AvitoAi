@@ -1,0 +1,98 @@
+{
+  "finished_at_utc": "2026-11-21T07:19:41.536220+00:00",
+  "source_files": [
+    "buyer/anchors.py",
+    "buyer/conversation.py",
+    "buyer/demo.py",
+    "buyer/ui/app.js",
+    "tests/test_dialogue_flow.py",
+    "tests/test_final_services.py",
+    "tests/ui_dialogue.cjs",
+    "bench/stage_latency.py",
+    "README.md"
+  ],
+  "messages": {
+    "off_topic": "Specialization explanation; clarify; no previous options",
+    "unsupported": "Reviewed category names for refrigerator, sofa and wardrobe; generic clarification for other unknown words",
+    "supported_absent": "Existing actual-catalogue no_match unchanged"
+  },
+  "single_item_rule": "All response.options entries have exactly one listing_id; otherwise bundle wording",
+  "diagnostics": {
+    "location": "stderr JSON and Server-Timing response header only; no new JSON contract fields",
+    "clock": "perf_counter for all nested Web stages",
+    "request_text_logged": false,
+    "authorization_logged": false,
+    "extra_gemma_requests_per_web_call": 0
+  },
+  "offline": {
+    "tests": 120,
+    "passed": true,
+    "elapsed_s": 55.003,
+    "real_gemma": false,
+    "log": "bench/results/final-polish-offline.txt"
+  },
+  "frontend": {
+    "passed": 10,
+    "total": 10,
+    "command": "node tests/ui_dialogue.cjs",
+    "full_browser_engine": false
+  },
+  "real_gemma": {
+    "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+    "model": "google/gemma-4-31B-it",
+    "configuration_source": "root .env",
+    "http_posts": 15,
+    "generations": 15,
+    "passed": 15,
+    "errors": 0,
+    "report": "bench/results/final-stage-latency.json"
+  },
+  "stages_ms": {
+    "gemma_ms": {
+      "p50": 50527.02,
+      "p95": 55039.094,
+      "p99": 55039.094
+    },
+    "resolve_ms": {
+      "p50": 50528.114,
+      "p95": 55040.591,
+      "p99": 55040.591
+    },
+    "search_ms": {
+      "p50": 0.068,
+      "p95": 0.349,
+      "p99": 0.349
+    },
+    "total_ms": {
+      "p50": 50528.417,
+      "p95": 55040.978,
+      "p99": 55040.978
+    }
+  },
+  "latency_30_70s_reproduced": true,
+  "protected_files_unchanged": {
+    "buyer/model.py": true,
+    "buyer/selection.py": true,
+    "buyer/ranking.py": true,
+    "buyer/indexed.py": true,
+    "buyer/cli.py": true,
+    "buyer/prompt.py": true,
+    "tests/real_nlu_cases.py": true,
+    "tests/test_conversation.py": true,
+    "schemas/response.schema.json": true,
+    ".env": true
+  },
+  "secret_leak_files": [],
+  "demo": {
+    "url": "http://127.0.0.1:8765",
+    "pid": 11136,
+    "updated": true
+  },
+  "limits": [
+    "15 observations: P95 and P99 are the maximum under nearest-rank; not a long-run tail estimate",
+    "13 controlled-catalogue scenarios and 2 organizer-catalogue scenarios; record counts saved per case",
+    "API-call latency includes transport and model response; individual network/queue/inference times not separated",
+    "Concrete unsupported names are emitted only for reviewed local labels; other goods receive generic category clarification",
+    "No performance optimization or real OpenSearch verification performed"
+  ]
+}

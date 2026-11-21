@@ -1,0 +1,2885 @@
+{
+  "started_at_utc": "2026-11-21T06:15:38.579222+00:00",
+  "team": "team-06",
+  "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+  "model": "google/gemma-4-31B-it",
+  "configuration_source": "root .env",
+  "planned": 15,
+  "executed": 15,
+  "passed": 15,
+  "real_generations": 15,
+  "frontend_secret_absent": true,
+  "cases": [
+    {
+      "name": "initial_bundle",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "ok",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "t80",
+                "c",
+                "l"
+              ],
+              "total_rub": 3500,
+              "explanation": "Самовывоз · Таганрог. Стол — 2 000 ₽ (ширина стола 80 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 3 500 ₽. Запас бюджета 11 500 ₽."
+            },
+            {
+              "listing_ids": [
+                "t100",
+                "c",
+                "l"
+              ],
+              "total_rub": 4500,
+              "explanation": "Самовывоз · Таганрог. Стол — 3 000 ₽ (ширина стола 100 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 4 500 ₽. Запас бюджета 10 500 ₽."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1291,
+          "completion_tokens": 60,
+          "elapsed_ms": 2625,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Кресло, Лампа"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "≤ 100 см"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 2
+          },
+          {
+            "category": "Кресло",
+            "count": 1
+          },
+          {
+            "category": "Лампа",
+            "count": 1
+          }
+        ],
+        "minimum_total_rub": 3500,
+        "items": {
+          "t80": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t80",
+            "price_rub": 2000,
+            "feature": "Ширина стола 80 см",
+            "city": "Таганрог"
+          },
+          "t100": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t100",
+            "price_rub": 3000,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          },
+          "c": {
+            "category": "Кресло",
+            "category_id": "chair",
+            "title": "Учебное объявление c",
+            "price_rub": 1000,
+            "feature": "Регулировка высоты есть",
+            "city": "Таганрог"
+          },
+          "l": {
+            "category": "Лампа",
+            "category_id": "lamp",
+            "title": "Учебное объявление l",
+            "price_rub": 500,
+            "feature": "Температура света 3000 К",
+            "city": "Таганрог"
+          }
+        },
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:15:38.676175+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:15:38.646178+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RHZTkKMhTT3Npg9h6RAmy7w5",
+            "object": "chat.completion",
+            "created": 1795241740,
+            "usage": {
+              "prompt_tokens": 1291,
+              "completion_tokens": 60,
+              "total_tokens": 1351,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2619.41
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2677.9941999993753
+    },
+    {
+      "name": "width_update",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "нужен стол 100см таганрог"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "eq",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "ok",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "t100",
+                "c",
+                "l"
+              ],
+              "total_rub": 4500,
+              "explanation": "Самовывоз · Таганрог. Стол — 3 000 ₽ (ширина стола 100 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 4 500 ₽. Запас бюджета 10 500 ₽."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1318,
+          "completion_tokens": 60,
+          "elapsed_ms": 2484,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Кресло, Лампа"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "= 100 см"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 1
+          },
+          {
+            "category": "Кресло",
+            "count": 1
+          },
+          {
+            "category": "Лампа",
+            "count": 1
+          }
+        ],
+        "minimum_total_rub": 4500,
+        "items": {
+          "t100": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t100",
+            "price_rub": 3000,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          },
+          "c": {
+            "category": "Кресло",
+            "category_id": "chair",
+            "title": "Учебное объявление c",
+            "price_rub": 1000,
+            "feature": "Регулировка высоты есть",
+            "city": "Таганрог"
+          },
+          "l": {
+            "category": "Лампа",
+            "category_id": "lamp",
+            "title": "Учебное объявление l",
+            "price_rub": 500,
+            "feature": "Температура света 3000 К",
+            "city": "Таганрог"
+          }
+        },
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:15:45.641730+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:15:45.608708+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"eq\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R2KhxrSEEyJfDH2PSXz06dvF",
+            "object": "chat.completion",
+            "created": 1795241747,
+            "usage": {
+              "prompt_tokens": 1318,
+              "completion_tokens": 60,
+              "total_tokens": 1378,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2485.204
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "eq",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "eq",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2520.699299988337
+    },
+    {
+      "name": "table_alias",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "столик таганрог"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "ok",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "t80",
+                "c",
+                "l"
+              ],
+              "total_rub": 3500,
+              "explanation": "Самовывоз · Таганрог. Стол — 2 000 ₽ (ширина стола 80 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 3 500 ₽. Запас бюджета 11 500 ₽."
+            },
+            {
+              "listing_ids": [
+                "t100",
+                "c",
+                "l"
+              ],
+              "total_rub": 4500,
+              "explanation": "Самовывоз · Таганрог. Стол — 3 000 ₽ (ширина стола 100 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 4 500 ₽. Запас бюджета 10 500 ₽."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1312,
+          "completion_tokens": 60,
+          "elapsed_ms": 2171,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Кресло, Лампа"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "≤ 100 см"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 2
+          },
+          {
+            "category": "Кресло",
+            "count": 1
+          },
+          {
+            "category": "Лампа",
+            "count": 1
+          }
+        ],
+        "minimum_total_rub": 3500,
+        "items": {
+          "t80": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t80",
+            "price_rub": 2000,
+            "feature": "Ширина стола 80 см",
+            "city": "Таганрог"
+          },
+          "t100": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t100",
+            "price_rub": 3000,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          },
+          "c": {
+            "category": "Кресло",
+            "category_id": "chair",
+            "title": "Учебное объявление c",
+            "price_rub": 1000,
+            "feature": "Регулировка высоты есть",
+            "city": "Таганрог"
+          },
+          "l": {
+            "category": "Лампа",
+            "category_id": "lamp",
+            "title": "Учебное объявление l",
+            "price_rub": 500,
+            "feature": "Температура света 3000 К",
+            "city": "Таганрог"
+          }
+        },
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:15:52.637834+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:15:52.619834+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RHmp96M9aULw0yz6myXq1Zh1",
+            "object": "chat.completion",
+            "created": 1795241754,
+            "usage": {
+              "prompt_tokens": 1312,
+              "completion_tokens": 60,
+              "total_tokens": 1372,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2175.709
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2208.691200008616
+    },
+    {
+      "name": "ambiguous_item_price",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "стул таганрог 1400"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "clarify",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "clarify",
+          "questions": [
+            {
+              "field": "budget_rub",
+              "text": "Указанное число — цена одного товара или общий бюджет на весь комплект?"
+            },
+            {
+              "field": "categories",
+              "text": "В каталоге поддерживается категория «Кресло». Подойдёт ли вам кресло вместо стула?"
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1317,
+          "completion_tokens": 61,
+          "elapsed_ms": 2125,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Кресло, Лампа"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "≤ 100 см"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [],
+        "minimum_total_rub": null,
+        "items": {},
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:15:59.651710+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:15:59.633710+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"ambiguous\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RfoWPUEUegzaVfUp15hsDXJH",
+            "object": "chat.completion",
+            "created": 1795241761,
+            "usage": {
+              "prompt_tokens": 1317,
+              "completion_tokens": 61,
+              "total_tokens": 1378,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2124.703
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2161.106400017161
+    },
+    {
+      "name": "off_topic",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "рецепт гуляша"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "clarify",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "clarify",
+          "questions": [
+            {
+              "field": "categories",
+              "text": "Я помогаю подбирать товары из каталога. Уточните, что вы хотите приобрести: например, стол, кресло или лампу."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1313,
+          "completion_tokens": 62,
+          "elapsed_ms": 2281,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Кресло, Лампа"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "≤ 100 см"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [],
+        "minimum_total_rub": null,
+        "items": {},
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:16:06.635059+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:16:06.612470+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"off_topic\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-Rx3bert9RmeEVoQ4u25iEFCq",
+            "object": "chat.completion",
+            "created": 1795241768,
+            "usage": {
+              "prompt_tokens": 1313,
+              "completion_tokens": 62,
+              "total_tokens": 1375,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2274.483
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2304.0317999839317
+    },
+    {
+      "name": "resume_after_off_topic",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "рецепт гуляша"
+        },
+        {
+          "role": "assistant",
+          "text": "Я помогаю подбирать товары из каталога. Уточните, что вы хотите приобрести: например, стол, кресло или лампу."
+        },
+        {
+          "role": "user",
+          "text": "нужен стол"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "ok",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "t80",
+                "c",
+                "l"
+              ],
+              "total_rub": 3500,
+              "explanation": "Самовывоз · Таганрог. Стол — 2 000 ₽ (ширина стола 80 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 3 500 ₽. Запас бюджета 11 500 ₽."
+            },
+            {
+              "listing_ids": [
+                "t100",
+                "c",
+                "l"
+              ],
+              "total_rub": 4500,
+              "explanation": "Самовывоз · Таганрог. Стол — 3 000 ₽ (ширина стола 100 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 4 500 ₽. Запас бюджета 10 500 ₽."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1356,
+          "completion_tokens": 60,
+          "elapsed_ms": 2671,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Кресло, Лампа"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "≤ 100 см"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 2
+          },
+          {
+            "category": "Кресло",
+            "count": 1
+          },
+          {
+            "category": "Лампа",
+            "count": 1
+          }
+        ],
+        "minimum_total_rub": 3500,
+        "items": {
+          "t80": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t80",
+            "price_rub": 2000,
+            "feature": "Ширина стола 80 см",
+            "city": "Таганрог"
+          },
+          "t100": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t100",
+            "price_rub": 3000,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          },
+          "c": {
+            "category": "Кресло",
+            "category_id": "chair",
+            "title": "Учебное объявление c",
+            "price_rub": 1000,
+            "feature": "Регулировка высоты есть",
+            "city": "Таганрог"
+          },
+          "l": {
+            "category": "Лампа",
+            "category_id": "lamp",
+            "title": "Учебное объявление l",
+            "price_rub": 500,
+            "feature": "Температура света 3000 К",
+            "city": "Таганрог"
+          }
+        },
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:16:13.648519+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:16:13.618552+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RdiCOIqNaCwsBx2svhYdXlfZ",
+            "object": "chat.completion",
+            "created": 1795241775,
+            "usage": {
+              "prompt_tokens": 1356,
+              "completion_tokens": 60,
+              "total_tokens": 1416,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2677.859
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2703.88620000449
+    },
+    {
+      "name": "only_table",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "оставь только стол"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "ok",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "t80"
+              ],
+              "total_rub": 2000,
+              "explanation": "Самовывоз · Таганрог. Стол — 2 000 ₽ (ширина стола 80 см). Итого 2 000 ₽. Запас бюджета 13 000 ₽."
+            },
+            {
+              "listing_ids": [
+                "t100"
+              ],
+              "total_rub": 3000,
+              "explanation": "Самовывоз · Таганрог. Стол — 3 000 ₽ (ширина стола 100 см). Итого 3 000 ₽. Запас бюджета 12 000 ₽."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1308,
+          "completion_tokens": 56,
+          "elapsed_ms": 2953,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "≤ 100 см"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 2
+          }
+        ],
+        "minimum_total_rub": 2000,
+        "items": {
+          "t80": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t80",
+            "price_rub": 2000,
+            "feature": "Ширина стола 80 см",
+            "city": "Таганрог"
+          },
+          "t100": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t100",
+            "price_rub": 3000,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          }
+        },
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:16:20.637018+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:16:20.616001+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RRjYflNdLuiS76vJsCyTHS8n",
+            "object": "chat.completion",
+            "created": 1795241783,
+            "usage": {
+              "prompt_tokens": 1308,
+              "completion_tokens": 56,
+              "total_tokens": 1364,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2960.516
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2979.9949000007473
+    },
+    {
+      "name": "remove_chair",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "убери кресло"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "ok",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "t80",
+                "l"
+              ],
+              "total_rub": 2500,
+              "explanation": "Самовывоз · Таганрог. Стол — 2 000 ₽ (ширина стола 80 см), Лампа — 500 ₽ (температура света 3000 к). Итого 2 500 ₽. Запас бюджета 12 500 ₽."
+            },
+            {
+              "listing_ids": [
+                "t100",
+                "l"
+              ],
+              "total_rub": 3500,
+              "explanation": "Самовывоз · Таганрог. Стол — 3 000 ₽ (ширина стола 100 см), Лампа — 500 ₽ (температура света 3000 к). Итого 3 500 ₽. Запас бюджета 11 500 ₽."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1310,
+          "completion_tokens": 58,
+          "elapsed_ms": 2406,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Лампа"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "≤ 100 см"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 2
+          },
+          {
+            "category": "Лампа",
+            "count": 1
+          }
+        ],
+        "minimum_total_rub": 2500,
+        "items": {
+          "t80": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t80",
+            "price_rub": 2000,
+            "feature": "Ширина стола 80 см",
+            "city": "Таганрог"
+          },
+          "t100": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t100",
+            "price_rub": 3000,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          },
+          "l": {
+            "category": "Лампа",
+            "category_id": "lamp",
+            "title": "Учебное объявление l",
+            "price_rub": 500,
+            "feature": "Температура света 3000 К",
+            "city": "Таганрог"
+          }
+        },
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:16:27.650912+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:16:27.621423+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-ReFrjUJNWJdsAX3o8UJue7d1",
+            "object": "chat.completion",
+            "created": 1795241789,
+            "usage": {
+              "prompt_tokens": 1310,
+              "completion_tokens": 58,
+              "total_tokens": 1368,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2410.043
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2441.683600016404
+    },
+    {
+      "name": "cancel_wish_add_lamp",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Деревянный стол в Таганроге. Бюджет 15000 рублей."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал стол."
+        },
+        {
+          "role": "user",
+          "text": "Отмени предыдущее пожелание, добавь лампу."
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "lamp"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "ok",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "wide",
+                "l"
+              ],
+              "total_rub": 1500,
+              "explanation": "Самовывоз · Таганрог. Стол — 1 000 ₽ (ширина стола 110 см), Лампа — 500 ₽ (температура света 3000 к). Итого 1 500 ₽. Запас бюджета 13 500 ₽."
+            },
+            {
+              "listing_ids": [
+                "t80",
+                "l"
+              ],
+              "total_rub": 2500,
+              "explanation": "Самовывоз · Таганрог. Стол — 2 000 ₽ (ширина стола 80 см), Лампа — 500 ₽ (температура света 3000 к). Итого 2 500 ₽. Запас бюджета 12 500 ₽."
+            },
+            {
+              "listing_ids": [
+                "t100",
+                "l"
+              ],
+              "total_rub": 3500,
+              "explanation": "Самовывоз · Таганрог. Стол — 3 000 ₽ (ширина стола 100 см), Лампа — 500 ₽ (температура света 3000 к). Итого 3 500 ₽. Запас бюджета 11 500 ₽."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1310,
+          "completion_tokens": 51,
+          "elapsed_ms": 2625,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Лампа"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 3
+          },
+          {
+            "category": "Лампа",
+            "count": 1
+          }
+        ],
+        "minimum_total_rub": 1500,
+        "items": {
+          "t80": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t80",
+            "price_rub": 2000,
+            "feature": "Ширина стола 80 см",
+            "city": "Таганрог"
+          },
+          "t100": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t100",
+            "price_rub": 3000,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          },
+          "wide": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление wide",
+            "price_rub": 1000,
+            "feature": "Ширина стола 110 см",
+            "city": "Таганрог"
+          },
+          "l": {
+            "category": "Лампа",
+            "category_id": "lamp",
+            "title": "Учебное объявление l",
+            "price_rub": 500,
+            "feature": "Температура света 3000 К",
+            "city": "Таганрог"
+          }
+        },
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:16:34.674703+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:16:34.638709+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"lamp\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-Rpiq9sHjbZ8ulxBPChb5YXnJ",
+            "object": "chat.completion",
+            "created": 1795241796,
+            "usage": {
+              "prompt_tokens": 1310,
+              "completion_tokens": 51,
+              "total_tokens": 1361,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2621.074
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "lamp"
+            ],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "lamp"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2672.913599992171
+    },
+    {
+      "name": "budget_update",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "бюджет теперь 12000"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 12000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "ok",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "t80",
+                "c",
+                "l"
+              ],
+              "total_rub": 3500,
+              "explanation": "Самовывоз · Таганрог. Стол — 2 000 ₽ (ширина стола 80 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 3 500 ₽. Запас бюджета 8 500 ₽."
+            },
+            {
+              "listing_ids": [
+                "t100",
+                "c",
+                "l"
+              ],
+              "total_rub": 4500,
+              "explanation": "Самовывоз · Таганрог. Стол — 3 000 ₽ (ширина стола 100 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 4 500 ₽. Запас бюджета 7 500 ₽."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1317,
+          "completion_tokens": 60,
+          "elapsed_ms": 2234,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 12000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Кресло, Лампа"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "≤ 100 см"
+          }
+        ],
+        "budget_rub": 12000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 2
+          },
+          {
+            "category": "Кресло",
+            "count": 1
+          },
+          {
+            "category": "Лампа",
+            "count": 1
+          }
+        ],
+        "minimum_total_rub": 3500,
+        "items": {
+          "t80": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t80",
+            "price_rub": 2000,
+            "feature": "Ширина стола 80 см",
+            "city": "Таганрог"
+          },
+          "t100": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t100",
+            "price_rub": 3000,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          },
+          "c": {
+            "category": "Кресло",
+            "category_id": "chair",
+            "title": "Учебное объявление c",
+            "price_rub": 1000,
+            "feature": "Регулировка высоты есть",
+            "city": "Таганрог"
+          },
+          "l": {
+            "category": "Лампа",
+            "category_id": "lamp",
+            "title": "Учебное объявление l",
+            "price_rub": 500,
+            "feature": "Температура света 3000 К",
+            "city": "Таганрог"
+          }
+        },
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:16:41.646284+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:16:41.625288+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":12000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RgW0WinFN4bVmWpBLhZmQvsM",
+            "object": "chat.completion",
+            "created": 1795241803,
+            "usage": {
+              "prompt_tokens": 1317,
+              "completion_tokens": 60,
+              "total_tokens": 1377,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2234.372
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 12000,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 12000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2284.236699983012
+    },
+    {
+      "name": "city_update",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "город теперь Азов"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "azov",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "ok",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "azT",
+                "azC",
+                "azL"
+              ],
+              "total_rub": 3500,
+              "explanation": "Самовывоз · Азов. Стол — 2 000 ₽ (ширина стола 100 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 3 500 ₽. Запас бюджета 11 500 ₽."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1311,
+          "completion_tokens": 59,
+          "elapsed_ms": 2515,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Азов"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Кресло, Лампа"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "≤ 100 см"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 1
+          },
+          {
+            "category": "Кресло",
+            "count": 1
+          },
+          {
+            "category": "Лампа",
+            "count": 1
+          }
+        ],
+        "minimum_total_rub": 3500,
+        "items": {
+          "azT": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление azT",
+            "price_rub": 2000,
+            "feature": "Ширина стола 100 см",
+            "city": "Азов"
+          },
+          "azC": {
+            "category": "Кресло",
+            "category_id": "chair",
+            "title": "Учебное объявление azC",
+            "price_rub": 1000,
+            "feature": "Регулировка высоты есть",
+            "city": "Азов"
+          },
+          "azL": {
+            "category": "Лампа",
+            "category_id": "lamp",
+            "title": "Учебное объявление azL",
+            "price_rub": 500,
+            "feature": "Температура света 3000 К",
+            "city": "Азов"
+          }
+        },
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:16:48.691086+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:16:48.659067+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":15000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-Rt7BLu6QKm8KX95Afupzs6C9",
+            "object": "chat.completion",
+            "created": 1795241810,
+            "usage": {
+              "prompt_tokens": 1311,
+              "completion_tokens": 59,
+              "total_tokens": 1370,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2512.667
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "azov",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "azov",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2563.3893000194803
+    },
+    {
+      "name": "clear_width",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "неважно, какая ширина"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "ok",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "wide",
+                "c",
+                "l"
+              ],
+              "total_rub": 2500,
+              "explanation": "Самовывоз · Таганрог. Стол — 1 000 ₽ (ширина стола 110 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 2 500 ₽. Запас бюджета 12 500 ₽."
+            },
+            {
+              "listing_ids": [
+                "t80",
+                "c",
+                "l"
+              ],
+              "total_rub": 3500,
+              "explanation": "Самовывоз · Таганрог. Стол — 2 000 ₽ (ширина стола 80 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 3 500 ₽. Запас бюджета 11 500 ₽."
+            },
+            {
+              "listing_ids": [
+                "t100",
+                "c",
+                "l"
+              ],
+              "total_rub": 4500,
+              "explanation": "Самовывоз · Таганрог. Стол — 3 000 ₽ (ширина стола 100 см), Кресло — 1 000 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 3000 к). Итого 4 500 ₽. Запас бюджета 10 500 ₽."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1313,
+          "completion_tokens": 53,
+          "elapsed_ms": 2640,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Кресло, Лампа"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 3
+          },
+          {
+            "category": "Кресло",
+            "count": 1
+          },
+          {
+            "category": "Лампа",
+            "count": 1
+          }
+        ],
+        "minimum_total_rub": 2500,
+        "items": {
+          "t80": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t80",
+            "price_rub": 2000,
+            "feature": "Ширина стола 80 см",
+            "city": "Таганрог"
+          },
+          "t100": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление t100",
+            "price_rub": 3000,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          },
+          "wide": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Учебное объявление wide",
+            "price_rub": 1000,
+            "feature": "Ширина стола 110 см",
+            "city": "Таганрог"
+          },
+          "c": {
+            "category": "Кресло",
+            "category_id": "chair",
+            "title": "Учебное объявление c",
+            "price_rub": 1000,
+            "feature": "Регулировка высоты есть",
+            "city": "Таганрог"
+          },
+          "l": {
+            "category": "Лампа",
+            "category_id": "lamp",
+            "title": "Учебное объявление l",
+            "price_rub": 500,
+            "feature": "Температура света 3000 К",
+            "city": "Таганрог"
+          }
+        },
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:16:55.657956+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:16:55.626936+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RG5X2SAuFYJTXkhiGzZUI1kz",
+            "object": "chat.completion",
+            "created": 1795241817,
+            "usage": {
+              "prompt_tokens": 1313,
+              "completion_tokens": 53,
+              "total_tokens": 1366,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2641.718
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2683.233099989593
+    },
+    {
+      "name": "missing_lamps_without_budget",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Нужна лампа в Таганроге"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": null,
+        "categories": [
+          "lamp"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "no_match",
+      "catalogue": "no_lamps",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "no_match",
+          "message": "Город самовывоза — Таганрог. «Лампа» отсутствует в каталоге. Подойдёт другой город или другой состав комплекта?"
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1267,
+          "completion_tokens": 45,
+          "elapsed_ms": 2453,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": null
+          },
+          {
+            "label": "Состав",
+            "value": "Лампа"
+          }
+        ],
+        "budget_rub": null,
+        "eligible": [
+          {
+            "category": "Лампа",
+            "count": 0
+          }
+        ],
+        "minimum_total_rub": null,
+        "items": {},
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:17:02.659789+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:17:02.633800+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":null,\"categories\":[\"lamp\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RPx6XiE0OdYhY2sIBSLZVrnu",
+            "object": "chat.completion",
+            "created": 1795241824,
+            "usage": {
+              "prompt_tokens": 1267,
+              "completion_tokens": 45,
+              "total_tokens": 1312,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2462.722
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": null,
+            "categories": [
+              "lamp"
+            ],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": null,
+        "categories": [
+          "lamp"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2489.8667999950703
+    },
+    {
+      "name": "new_dialogue",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "новый диалог"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": null,
+        "budget_rub": null,
+        "categories": [],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "clarify",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "clarify",
+          "questions": [
+            {
+              "field": "budget_rub",
+              "text": "Какой у вас максимальный бюджет на весь комплект?"
+            },
+            {
+              "field": "city_id",
+              "text": "В каком городе нужен самовывоз — Таганрог, Ростов-на-Дону или Азов?"
+            },
+            {
+              "field": "categories",
+              "text": "Что подобрать из каталога — стол, кресло или лампу? Можно выбрать несколько."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1249,
+          "completion_tokens": 43,
+          "elapsed_ms": 1937,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": null
+          },
+          {
+            "label": "Бюджет",
+            "value": null
+          },
+          {
+            "label": "Состав",
+            "value": null
+          }
+        ],
+        "budget_rub": null,
+        "eligible": [],
+        "minimum_total_rub": null,
+        "items": {},
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:17:09.646088+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:17:09.627088+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":null,\"budget_rub\":null,\"categories\":null,\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"reset\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RyG2OgkyAyIk9NvzFuihQBxu",
+            "object": "chat.completion",
+            "created": 1795241831,
+            "usage": {
+              "prompt_tokens": 1249,
+              "completion_tokens": 43,
+              "total_tokens": 1292,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 1928.31
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": null,
+            "budget_rub": null,
+            "categories": [],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": null,
+        "budget_rub": null,
+        "categories": [],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 1949.3466999847442
+    },
+    {
+      "name": "infeasible_bundle_budget",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол не шире метра, кресло и лампа. Таганрог. До 100 ₽ за всё."
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 100,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "expected_status": "no_match",
+      "catalogue": "full",
+      "real_gemma": true,
+      "actual_http_post": true,
+      "http_status": 200,
+      "body": {
+        "response": {
+          "status": "no_match",
+          "message": "В городе Таганрог самый доступный полный комплект с вашими характеристиками стоит 3 500 ₽. До него не хватает 3 400 ₽. Можно увеличить бюджет до этой суммы или изменить одно из требований. Что вам удобнее?"
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1288,
+          "completion_tokens": 58,
+          "elapsed_ms": 2563,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 100
+          },
+          {
+            "label": "Состав",
+            "value": "Стол, Кресло, Лампа"
+          },
+          {
+            "label": "Ширина стола",
+            "value": "≤ 100 см"
+          }
+        ],
+        "budget_rub": 100,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 2
+          },
+          {
+            "category": "Кресло",
+            "count": 1
+          },
+          {
+            "category": "Лампа",
+            "count": 1
+          }
+        ],
+        "minimum_total_rub": 3500,
+        "items": {},
+        "preferences": []
+      },
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T06:17:16.665774+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T06:17:16.646776+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":100,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[],\"intent\":\"shopping\"}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R0J6lZ5jbsmmIpR3A4DhvENL",
+            "object": "chat.completion",
+            "created": 1795241838,
+            "usage": {
+              "prompt_tokens": 1288,
+              "completion_tokens": 58,
+              "total_tokens": 1346,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2561.149
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 100,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ],
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 100,
+        "categories": [
+          "table",
+          "chair",
+          "lamp"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "passed": true,
+      "wall_ms": 2596.953600004781
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "finished_at_utc": "2026-11-21T02:40:53.905140+00:00",
+  "code_revision": "ebbff757d86f783862855a8366d39cc840e5d001",
+  "initial_full_nlu": {
+    "executed": 36,
+    "passed": 30,
+    "requirements_passed": 30,
+    "preferences_passed": 31,
+    "transport_errors": 5
+  },
+  "final_full_nlu": {
+    "started_at_utc": "2026-11-21T02:34:22.701226+00:00",
+    "model": "google/gemma-4-31B-it",
+    "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+    "configuration_source": "root .env",
+    "executed": 36,
+    "passed": 36,
+    "requirements_passed": 36,
+    "preferences_passed": 36,
+    "transport_errors": 0,
+    "gateway_latency_ms": {
+      "p50": 2775.098,
+      "p95": 4833.074,
+      "p99": 6610.205
+    }
+  },
+  "full_rerun_report": "bench/results/live-gemma-quality-final-rerun1.json",
+  "frozen_expected_sources_unchanged": {
+    "tests/real_nlu_cases.py": true,
+    "tests/test_conversation.py": true
+  },
+  "confirmed_defect": {
+    "scenario": "Стол. До 100. Таганрог.",
+    "cause": "Gemma inferred width_cm <= 100 without a stated attribute/unit; merge accepted it",
+    "fix": "Conservatively mark an unscoped unitless comparison as ambiguous, preventing a guessed hard bound",
+    "file": "buyer/query_parser.py",
+    "regression_test": "tests/test_final_nlu.py::FinalNluTest.test_live_unscoped_number_cannot_become_a_model_width",
+    "regression_before": "FAIL",
+    "regression_after": "PASS"
+  },
+  "opensearch": {
+    "status": "not_run",
+    "real_server_used": false,
+    "reason": [
+      "Docker/Podman unavailable in this environment; OpenSearch 3.3.2 could not be started",
+      "127.0.0.1:19200 did not answer the real HTTP probe"
+    ],
+    "version": null,
+    "catalog_imported": false,
+    "numeric_aggregations_executed": false,
+    "web_api_with_opensearch_executed": false,
+    "report": "bench/results/opensearch-real-smoke.json"
+  },
+  "offline": {
+    "real_gemma": false,
+    "tests": 97,
+    "elapsed_s": 41.182,
+    "passed": true,
+    "log": "bench/results/final-verification-offline-rerun1.txt"
+  },
+  "real_cli_contract": {
+    "real_gemma": true,
+    "fresh_cases": 1,
+    "passed": true,
+    "schema_valid": true,
+    "stdout_single_json": true,
+    "full_cli_seconds": 2.7969999999913853,
+    "report": "bench/results/final-cli-contract.json"
+  },
+  "real_http_attempts_including_initial_failures": 73,
+  "transport_errors": 5,
+  "schema_errors": [],
+  "credential_scan": {
+    "ignored_env": true,
+    "leaking_files": []
+  },
+  "cleanup": {
+    "index_created": false,
+    "index_deleted": false,
+    "gzip_created": false,
+    "gzip_deleted": false,
+    "server_started": false,
+    "server_stopped": false,
+    "permanent_data_modified": false
+  }
+}

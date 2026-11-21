@@ -1,0 +1,23 @@
+test_stage_timings_exclude_gemma_from_search_and_log_no_input (tests.test_dialogue_flow.DialogueFlowTest.test_stage_timings_exclude_gemma_from_search_and_log_no_input) ... ok
+test_busy_response_has_zero_gemma_and_search_timings (tests.test_final_services.DemoModelTest.test_busy_response_has_zero_gemma_and_search_timings) ... 127.0.0.1 - - [21/Nov/2026 10:02:34] "POST /api/buy HTTP/1.1" 429 -
+{"event": "buyer_stage_latency", "status": 429, "gemma_ms": 0.0, "resolve_ms": 4.834, "search_ms": 0.0, "total_ms": 5.814}
+ok
+test_each_simple_buy_calls_gemma (tests.test_final_services.DemoModelTest.test_each_simple_buy_calls_gemma) ... 127.0.0.1 - - [21/Nov/2026 10:02:34] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 0.085, "resolve_ms": 1.263, "search_ms": 0.144, "total_ms": 1.841}
+127.0.0.1 - - [21/Nov/2026 10:02:34] "POST /api/buy HTTP/1.1" 200 -
+{"event": "buyer_stage_latency", "status": 200, "gemma_ms": 0.041, "resolve_ms": 2.309, "search_ms": 0.115, "total_ms": 2.801}
+ok
+test_model_error_has_timings_without_search_or_no_match (tests.test_final_services.DemoModelTest.test_model_error_has_timings_without_search_or_no_match) ... 127.0.0.1 - - [21/Nov/2026 10:02:34] "POST /api/buy HTTP/1.1" 502 -
+{"event": "buyer_stage_latency", "status": 502, "gemma_ms": 0.047, "resolve_ms": 0.893, "search_ms": 0.0, "total_ms": 1.178}
+ok
+test_occupied_gateway_slot_stays_busy (tests.test_final_services.DemoModelTest.test_occupied_gateway_slot_stays_busy) ... 127.0.0.1 - - [21/Nov/2026 10:02:34] "POST /api/buy HTTP/1.1" 429 -
+{"event": "buyer_stage_latency", "status": 429, "gemma_ms": 0.0, "resolve_ms": 0.798, "search_ms": 0.0, "total_ms": 1.008}
+ok
+test_unavailable_gemma_is_technical_error (tests.test_final_services.DemoModelTest.test_unavailable_gemma_is_technical_error) ... 127.0.0.1 - - [21/Nov/2026 10:02:34] "POST /api/buy HTTP/1.1" 502 -
+{"event": "buyer_stage_latency", "status": 502, "gemma_ms": 0.052, "resolve_ms": 1.549, "search_ms": 0.0, "total_ms": 1.822}
+ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.441s
+
+OK

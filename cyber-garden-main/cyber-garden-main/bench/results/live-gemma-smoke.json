@@ -1,0 +1,42 @@
+{
+  "started_at_utc": "2026-11-21T01:29:26.194642+00:00",
+  "team": "team-06",
+  "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+  "model": "google/gemma-4-31B-it",
+  "messages": [
+    {
+      "role": "user",
+      "text": "Стол не шире 100 см, кресло и лампа. Таганрог. Бюджет 15000 рублей."
+    }
+  ],
+  "real_gateway_attempted": true,
+  "success": true,
+  "query": {
+    "requirements": {
+      "city_id": "taganrog",
+      "budget_rub": 15000,
+      "categories": [
+        "table",
+        "chair",
+        "lamp"
+      ],
+      "width_cm": [
+        {
+          "operation": "lte",
+          "value": "100"
+        }
+      ],
+      "adjustable_height": null,
+      "color_temperature_k": []
+    },
+    "preferences": []
+  },
+  "trace": {
+    "model": "google/gemma-4-31B-it",
+    "prompt_tokens": 1141,
+    "completion_tokens": 56,
+    "elapsed_ms": 6984,
+    "category_source": "Gemma"
+  },
+  "finished_at_utc": "2026-11-21T01:29:33.173318+00:00"
+}

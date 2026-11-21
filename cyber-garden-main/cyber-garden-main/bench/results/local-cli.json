@@ -1,0 +1,776 @@
+{
+  "environment": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.14",
+    "processor": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
+    "cpu_count": 6
+  },
+  "repeats": 30,
+  "gateway": "local HTTP mock, no real Gemma inference",
+  "percentile_method": "nearest rank",
+  "datasets": {
+    "organizers": {
+      "listing_count": 111,
+      "eligible_category_sizes": [
+        13,
+        13,
+        13
+      ],
+      "combination_count": 2197,
+      "warmup_runs": 1,
+      "phases": {
+        "catalog_read_validate": {
+          "p50_ms": 1.3464,
+          "p95_ms": 4.8924
+        },
+        "nlu_mock_gateway": {
+          "p50_ms": 25.0282,
+          "p95_ms": 54.8024
+        },
+        "strict_filter": {
+          "p50_ms": 0.0411,
+          "p95_ms": 0.1137
+        },
+        "relevance": {
+          "p50_ms": 4.916,
+          "p95_ms": 10.7576
+        },
+        "bundle_search": {
+          "p50_ms": 3.3008,
+          "p95_ms": 5.1272
+        },
+        "python_total": {
+          "p50_ms": 36.0348,
+          "p95_ms": 72.22
+        },
+        "response_and_orchestration": {
+          "p50_ms": 0.1755,
+          "p95_ms": 0.2966
+        }
+      },
+      "fresh_run_process": {
+        "p50_ms": 617.8924,
+        "p95_ms": 712.9626
+      },
+      "samples_ms": [
+        {
+          "catalog_read_validate": 1.6349999932572246,
+          "nlu_mock_gateway": 25.01240000128746,
+          "strict_filter": 0.033499993151053786,
+          "relevance": 4.828100005397573,
+          "bundle_search": 3.132300014840439,
+          "python_total": 34.87350000068545,
+          "response_and_orchestration": 0.23219999275170267
+        },
+        {
+          "catalog_read_validate": 1.3612000038847327,
+          "nlu_mock_gateway": 24.779500003205612,
+          "strict_filter": 0.03959998139180243,
+          "relevance": 5.398400011472404,
+          "bundle_search": 3.358899994054809,
+          "python_total": 35.11520000756718,
+          "response_and_orchestration": 0.1776000135578215
+        },
+        {
+          "catalog_read_validate": 1.2826000165659934,
+          "nlu_mock_gateway": 23.67179997963831,
+          "strict_filter": 0.036299985367804766,
+          "relevance": 4.675100004533306,
+          "bundle_search": 3.1761999998707324,
+          "python_total": 33.01459999056533,
+          "response_and_orchestration": 0.17260000458918512
+        },
+        {
+          "catalog_read_validate": 1.3395999849308282,
+          "nlu_mock_gateway": 23.52049999171868,
+          "strict_filter": 0.036699988413602114,
+          "relevance": 4.730300017399713,
+          "bundle_search": 3.22099999175407,
+          "python_total": 33.024300006218255,
+          "response_and_orchestration": 0.17620003200136125
+        },
+        {
+          "catalog_read_validate": 1.3408999948296696,
+          "nlu_mock_gateway": 23.43140001175925,
+          "strict_filter": 0.03670001751743257,
+          "relevance": 4.734699992695823,
+          "bundle_search": 3.3007999882102013,
+          "python_total": 33.00990001298487,
+          "response_and_orchestration": 0.16540000797249377
+        },
+        {
+          "catalog_read_validate": 1.3373999972827733,
+          "nlu_mock_gateway": 39.15120000601746,
+          "strict_filter": 0.036500015994533896,
+          "relevance": 4.908300004899502,
+          "bundle_search": 3.2405999954789877,
+          "python_total": 48.83839999092743,
+          "response_and_orchestration": 0.16439997125416994
+        },
+        {
+          "catalog_read_validate": 1.333599997451529,
+          "nlu_mock_gateway": 23.39909999864176,
+          "strict_filter": 0.03659998765215278,
+          "relevance": 4.893500008620322,
+          "bundle_search": 3.3839000097941607,
+          "python_total": 33.22199999820441,
+          "response_and_orchestration": 0.17529999604448676
+        },
+        {
+          "catalog_read_validate": 1.6305999888572842,
+          "nlu_mock_gateway": 26.340600015828386,
+          "strict_filter": 0.036299985367804766,
+          "relevance": 4.816100001335144,
+          "bundle_search": 3.587300016079098,
+          "python_total": 36.578699975507334,
+          "response_and_orchestration": 0.16779996803961694
+        },
+        {
+          "catalog_read_validate": 4.4787999941036105,
+          "nlu_mock_gateway": 26.506599999265745,
+          "strict_filter": 0.03860000288113952,
+          "relevance": 5.135499988682568,
+          "bundle_search": 3.3665999944787472,
+          "python_total": 39.701800007605925,
+          "response_and_orchestration": 0.17570002819411457
+        },
+        {
+          "catalog_read_validate": 1.371499995002523,
+          "nlu_mock_gateway": 59.69670001650229,
+          "strict_filter": 0.11370002175681293,
+          "relevance": 14.175200019963086,
+          "bundle_search": 5.391100014094263,
+          "python_total": 81.0448000265751,
+          "response_and_orchestration": 0.2965999592561275
+        },
+        {
+          "catalog_read_validate": 1.3417000009212643,
+          "nlu_mock_gateway": 24.7617999848444,
+          "strict_filter": 0.04290000651963055,
+          "relevance": 6.156600022222847,
+          "bundle_search": 3.553100017597899,
+          "python_total": 36.06620000209659,
+          "response_and_orchestration": 0.21009996999055147
+        },
+        {
+          "catalog_read_validate": 1.6676000086590648,
+          "nlu_mock_gateway": 26.628099993104115,
+          "strict_filter": 0.0439999857917428,
+          "relevance": 5.1595999975688756,
+          "bundle_search": 3.271499997936189,
+          "python_total": 36.957899981644005,
+          "response_and_orchestration": 0.18709999858401716
+        },
+        {
+          "catalog_read_validate": 1.2876999971922487,
+          "nlu_mock_gateway": 24.130600009812042,
+          "strict_filter": 0.044400017941370606,
+          "relevance": 4.829599987715483,
+          "bundle_search": 3.141200024401769,
+          "python_total": 33.59649999765679,
+          "response_and_orchestration": 0.16299996059387922
+        },
+        {
+          "catalog_read_validate": 1.3464000076055527,
+          "nlu_mock_gateway": 24.69700001529418,
+          "strict_filter": 0.041799998143687844,
+          "relevance": 4.6864000032655895,
+          "bundle_search": 3.2241000153589994,
+          "python_total": 34.157799993408844,
+          "response_and_orchestration": 0.1620999537408352
+        },
+        {
+          "catalog_read_validate": 1.3676000235136598,
+          "nlu_mock_gateway": 26.118400011910126,
+          "strict_filter": 0.04090002039447427,
+          "relevance": 4.791599989403039,
+          "bundle_search": 3.268000000389293,
+          "python_total": 35.76200001407415,
+          "response_and_orchestration": 0.17549996846355498
+        },
+        {
+          "catalog_read_validate": 1.424099988071248,
+          "nlu_mock_gateway": 25.306499999715015,
+          "strict_filter": 0.04119999357499182,
+          "relevance": 4.996399977244437,
+          "bundle_search": 3.2700000156182796,
+          "python_total": 35.21220001857728,
+          "response_and_orchestration": 0.1740000443533063
+        },
+        {
+          "catalog_read_validate": 1.381999987643212,
+          "nlu_mock_gateway": 25.028199976077303,
+          "strict_filter": 0.056899996707215905,
+          "relevance": 5.363599979318678,
+          "bundle_search": 3.5865000099875033,
+          "python_total": 35.63100000610575,
+          "response_and_orchestration": 0.21380005637183785
+        },
+        {
+          "catalog_read_validate": 5.120499990880489,
+          "nlu_mock_gateway": 24.007799976971,
+          "strict_filter": 0.04069998976774514,
+          "relevance": 5.810400005429983,
+          "bundle_search": 4.369000002043322,
+          "python_total": 39.52069999650121,
+          "response_and_orchestration": 0.17230003140866756
+        },
+        {
+          "catalog_read_validate": 1.2919000000692904,
+          "nlu_mock_gateway": 50.80130000715144,
+          "strict_filter": 0.07179999374784529,
+          "relevance": 8.597100008046255,
+          "bundle_search": 4.503100004512817,
+          "python_total": 65.46830001752824,
+          "response_and_orchestration": 0.20310000400058925
+        },
+        {
+          "catalog_read_validate": 1.3805000053253025,
+          "nlu_mock_gateway": 47.161499998765066,
+          "strict_filter": 0.04089999129064381,
+          "relevance": 4.641000006813556,
+          "bundle_search": 3.1399999861605465,
+          "python_total": 56.53550001443364,
+          "response_and_orchestration": 0.1716000260785222
+        },
+        {
+          "catalog_read_validate": 1.2852999789174646,
+          "nlu_mock_gateway": 23.321100015891716,
+          "strict_filter": 0.041099992813542485,
+          "relevance": 5.288000014843419,
+          "bundle_search": 3.6865999863948673,
+          "python_total": 33.799099997850135,
+          "response_and_orchestration": 0.1770000089891255
+        },
+        {
+          "catalog_read_validate": 1.3711000210605562,
+          "nlu_mock_gateway": 24.363000004086643,
+          "strict_filter": 0.04700000863522291,
+          "relevance": 4.7153999912552536,
+          "bundle_search": 3.188000002410263,
+          "python_total": 33.85470001376234,
+          "response_and_orchestration": 0.17019998631440103
+        },
+        {
+          "catalog_read_validate": 1.3312000082805753,
+          "nlu_mock_gateway": 46.69750001630746,
+          "strict_filter": 0.04099999205209315,
+          "relevance": 4.640300001483411,
+          "bundle_search": 3.2442999945487827,
+          "python_total": 56.11700000008568,
+          "response_and_orchestration": 0.16269998741336167
+        },
+        {
+          "catalog_read_validate": 1.4983000000938773,
+          "nlu_mock_gateway": 26.13549999659881,
+          "strict_filter": 0.041799998143687844,
+          "relevance": 4.937899997457862,
+          "bundle_search": 3.216000011889264,
+          "python_total": 36.034799995832145,
+          "response_and_orchestration": 0.2052999916486442
+        },
+        {
+          "catalog_read_validate": 1.2830000196117908,
+          "nlu_mock_gateway": 46.06799999601208,
+          "strict_filter": 0.05540001438930631,
+          "relevance": 6.721000012475997,
+          "bundle_search": 3.9866000006441027,
+          "python_total": 58.31040002522059,
+          "response_and_orchestration": 0.19639998208731413
+        },
+        {
+          "catalog_read_validate": 1.340399991022423,
+          "nlu_mock_gateway": 39.64289999566972,
+          "strict_filter": 0.045900000259280205,
+          "relevance": 4.915999976219609,
+          "bundle_search": 3.373899991856888,
+          "python_total": 49.501300003612414,
+          "response_and_orchestration": 0.18220004858449101
+        },
+        {
+          "catalog_read_validate": 4.892400000244379,
+          "nlu_mock_gateway": 23.72480000485666,
+          "strict_filter": 0.04350001108832657,
+          "relevance": 4.950399976223707,
+          "bundle_search": 3.202599997166544,
+          "python_total": 36.989100015489385,
+          "response_and_orchestration": 0.17540002590976655
+        },
+        {
+          "catalog_read_validate": 1.346200006082654,
+          "nlu_mock_gateway": 54.802400001790375,
+          "strict_filter": 0.08639998850412667,
+          "relevance": 10.757599986391142,
+          "bundle_search": 5.002799996873364,
+          "python_total": 72.2200000018347,
+          "response_and_orchestration": 0.22460002219304442
+        },
+        {
+          "catalog_read_validate": 1.2687999987974763,
+          "nlu_mock_gateway": 52.26340002263896,
+          "strict_filter": 0.15700000221841037,
+          "relevance": 10.073899989947677,
+          "bundle_search": 5.1272000127937645,
+          "python_total": 69.30230002035387,
+          "response_and_orchestration": 0.41199999395757914
+        },
+        {
+          "catalog_read_validate": 1.409500022418797,
+          "nlu_mock_gateway": 23.68350001052022,
+          "strict_filter": 0.04089999129064381,
+          "relevance": 4.7556000063195825,
+          "bundle_search": 3.445099981036037,
+          "python_total": 33.498500008136034,
+          "response_and_orchestration": 0.1638999965507537
+        }
+      ],
+      "process_samples_ms": [
+        712.9625999950804,
+        619.3416000169236,
+        605.14269999112,
+        594.1930999979377,
+        639.8293999955058,
+        626.3388000079431,
+        613.8871999864932,
+        619.6121000102721,
+        804.8338000080548,
+        633.320900000399,
+        635.4138000169769,
+        598.8131999911275,
+        631.0541999991983,
+        617.8659000142943,
+        640.1180999819189,
+        626.5534000121988,
+        621.3610999984667,
+        611.2232999876142,
+        615.5891999951564,
+        614.2355999909341,
+        609.239700017497,
+        624.0703000221401,
+        609.8954000044614,
+        617.8924000123516,
+        607.0168000005651,
+        649.3920000211801,
+        612.3561999993399,
+        606.5468000015244,
+        610.6134000001475,
+        647.3390999890398
+      ],
+      "example_response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "demo-1-1-03",
+              "demo-1-2-01",
+              "demo-1-3-09"
+            ],
+            "total_rub": 8900,
+            "explanation": "Самовывоз · Таганрог. Стол — 5 500 ₽ (ширина стола 95 см), Кресло — 2 800 ₽, Лампа — 600 ₽ (температура света 5000 к). Итого 8 900 ₽. Запас бюджета 6 100 ₽."
+          },
+          {
+            "listing_ids": [
+              "demo-1-1-03",
+              "demo-1-2-01",
+              "demo-1-3-01"
+            ],
+            "total_rub": 8950,
+            "explanation": "Самовывоз · Таганрог. Стол — 5 500 ₽ (ширина стола 95 см), Кресло — 2 800 ₽, Лампа — 650 ₽. Итого 8 950 ₽. Запас бюджета 6 050 ₽."
+          },
+          {
+            "listing_ids": [
+              "demo-1-1-03",
+              "demo-1-2-01",
+              "demo-1-3-05"
+            ],
+            "total_rub": 9150,
+            "explanation": "Самовывоз · Таганрог. Стол — 5 500 ₽ (ширина стола 95 см), Кресло — 2 800 ₽, Лампа — 850 ₽ (температура света 6500 к). Итого 9 150 ₽. Запас бюджета 5 850 ₽."
+          }
+        ]
+      }
+    },
+    "balanced_250": {
+      "listing_count": 250,
+      "eligible_category_sizes": [
+        84,
+        83,
+        83
+      ],
+      "combination_count": 578676,
+      "warmup_runs": 1,
+      "phases": {
+        "catalog_read_validate": {
+          "p50_ms": 2.7657,
+          "p95_ms": 3.3028
+        },
+        "nlu_mock_gateway": {
+          "p50_ms": 33.1341,
+          "p95_ms": 46.7384
+        },
+        "strict_filter": {
+          "p50_ms": 0.158,
+          "p95_ms": 0.3398
+        },
+        "relevance": {
+          "p50_ms": 11.5186,
+          "p95_ms": 18.4398
+        },
+        "bundle_search": {
+          "p50_ms": 906.8255,
+          "p95_ms": 1033.368
+        },
+        "python_total": {
+          "p50_ms": 960.4507,
+          "p95_ms": 1089.8503
+        },
+        "response_and_orchestration": {
+          "p50_ms": 0.1814,
+          "p95_ms": 0.2145
+        }
+      },
+      "fresh_run_process": {
+        "p50_ms": 1513.9855,
+        "p95_ms": 1728.4466
+      },
+      "samples_ms": [
+        {
+          "catalog_read_validate": 2.725700003793463,
+          "nlu_mock_gateway": 43.047099985415116,
+          "strict_filter": 0.15529998927377164,
+          "relevance": 10.79950001440011,
+          "bundle_search": 910.5810000037309,
+          "python_total": 967.4770999990869,
+          "response_and_orchestration": 0.16850000247359276
+        },
+        {
+          "catalog_read_validate": 2.702499972656369,
+          "nlu_mock_gateway": 24.131300015142187,
+          "strict_filter": 0.14739998732693493,
+          "relevance": 11.518600018462166,
+          "bundle_search": 888.8785000017378,
+          "python_total": 927.5408000103198,
+          "response_and_orchestration": 0.16250001499429345
+        },
+        {
+          "catalog_read_validate": 2.709699998376891,
+          "nlu_mock_gateway": 34.20180000830442,
+          "strict_filter": 0.15060001169331372,
+          "relevance": 11.048600019421428,
+          "bundle_search": 898.8076999958139,
+          "python_total": 947.0947000081651,
+          "response_and_orchestration": 0.17629997455514967
+        },
+        {
+          "catalog_read_validate": 2.6799000042956322,
+          "nlu_mock_gateway": 24.11030000075698,
+          "strict_filter": 0.18689999706111848,
+          "relevance": 11.093899986008182,
+          "bundle_search": 898.826899996493,
+          "python_total": 937.0708000205923,
+          "response_and_orchestration": 0.1729000359773636
+        },
+        {
+          "catalog_read_validate": 2.79869997757487,
+          "nlu_mock_gateway": 26.463500020327047,
+          "strict_filter": 0.15300000086426735,
+          "relevance": 11.90620000124909,
+          "bundle_search": 904.3828000139911,
+          "python_total": 945.893399999477,
+          "response_and_orchestration": 0.18919998547062278
+        },
+        {
+          "catalog_read_validate": 2.8276999946683645,
+          "nlu_mock_gateway": 45.18319998169318,
+          "strict_filter": 0.14769998961128294,
+          "relevance": 10.97860001027584,
+          "bundle_search": 887.470099987695,
+          "python_total": 946.7941999901086,
+          "response_and_orchestration": 0.18690002616494894
+        },
+        {
+          "catalog_read_validate": 2.646900014951825,
+          "nlu_mock_gateway": 39.31389999343082,
+          "strict_filter": 0.14410002040676773,
+          "relevance": 10.962099971948192,
+          "bundle_search": 891.7777999886312,
+          "python_total": 945.0130999903195,
+          "response_and_orchestration": 0.16830000095069408
+        },
+        {
+          "catalog_read_validate": 2.8224000125192106,
+          "nlu_mock_gateway": 26.574800023809075,
+          "strict_filter": 0.15799998072907329,
+          "relevance": 13.813400000799447,
+          "bundle_search": 981.1663999862503,
+          "python_total": 1024.709699995583,
+          "response_and_orchestration": 0.17469999147579074
+        },
+        {
+          "catalog_read_validate": 2.6387999823782593,
+          "nlu_mock_gateway": 44.01700000744313,
+          "strict_filter": 0.2688000095076859,
+          "relevance": 18.43979998375289,
+          "bundle_search": 899.3766000203323,
+          "python_total": 964.9311999964993,
+          "response_and_orchestration": 0.19019999308511615
+        },
+        {
+          "catalog_read_validate": 3.1925999792292714,
+          "nlu_mock_gateway": 25.12780000688508,
+          "strict_filter": 0.14960000407882035,
+          "relevance": 10.95799999893643,
+          "bundle_search": 920.3201000054833,
+          "python_total": 959.9235999921802,
+          "response_and_orchestration": 0.17549999756738544
+        },
+        {
+          "catalog_read_validate": 2.6218999992124736,
+          "nlu_mock_gateway": 46.7384000075981,
+          "strict_filter": 0.3397999971639365,
+          "relevance": 20.750199997564778,
+          "bundle_search": 902.5551000086125,
+          "python_total": 973.2198999845423,
+          "response_and_orchestration": 0.21449997439049184
+        },
+        {
+          "catalog_read_validate": 3.0846000008750707,
+          "nlu_mock_gateway": 28.6836999875959,
+          "strict_filter": 0.21749999723397195,
+          "relevance": 12.176499993074685,
+          "bundle_search": 916.0942000162322,
+          "python_total": 960.4507000185549,
+          "response_and_orchestration": 0.19420002354308963
+        },
+        {
+          "catalog_read_validate": 3.0018999823369086,
+          "nlu_mock_gateway": 39.223100000526756,
+          "strict_filter": 0.15139998868107796,
+          "relevance": 10.910999990301207,
+          "bundle_search": 895.5574999854434,
+          "python_total": 949.0177000116091,
+          "response_and_orchestration": 0.1728000643197447
+        },
+        {
+          "catalog_read_validate": 2.9995999939274043,
+          "nlu_mock_gateway": 34.31649997946806,
+          "strict_filter": 0.1863999932538718,
+          "relevance": 11.085700010880828,
+          "bundle_search": 902.8266999812331,
+          "python_total": 951.6068999946583,
+          "response_and_orchestration": 0.19200003589503467
+        },
+        {
+          "catalog_read_validate": 2.737700007855892,
+          "nlu_mock_gateway": 33.13409999827854,
+          "strict_filter": 0.1500000071246177,
+          "relevance": 11.062799982028082,
+          "bundle_search": 906.8255000165664,
+          "python_total": 954.0851999772713,
+          "response_and_orchestration": 0.17509996541775763
+        },
+        {
+          "catalog_read_validate": 3.1740000122226775,
+          "nlu_mock_gateway": 26.25409999745898,
+          "strict_filter": 0.16250001499429345,
+          "relevance": 12.573899992275983,
+          "bundle_search": 926.5993000008166,
+          "python_total": 968.9553999924101,
+          "response_and_orchestration": 0.1915999746415764
+        },
+        {
+          "catalog_read_validate": 2.669199981028214,
+          "nlu_mock_gateway": 29.636099992785603,
+          "strict_filter": 0.3733999910764396,
+          "relevance": 12.05429999390617,
+          "bundle_search": 922.1385999990162,
+          "python_total": 967.0714999956544,
+          "response_and_orchestration": 0.19990003784187138
+        },
+        {
+          "catalog_read_validate": 2.708199986955151,
+          "nlu_mock_gateway": 39.50379998423159,
+          "strict_filter": 0.3279999946244061,
+          "relevance": 15.805299975909293,
+          "bundle_search": 897.6813000044785,
+          "python_total": 956.2410000071395,
+          "response_and_orchestration": 0.21440006094053388
+        },
+        {
+          "catalog_read_validate": 2.6144000003114343,
+          "nlu_mock_gateway": 24.482799984980375,
+          "strict_filter": 0.15120001626200974,
+          "relevance": 11.032799986423925,
+          "bundle_search": 950.7304999860935,
+          "python_total": 989.1893000167329,
+          "response_and_orchestration": 0.17760004266165197
+        },
+        {
+          "catalog_read_validate": 2.982200006954372,
+          "nlu_mock_gateway": 27.185000013560057,
+          "strict_filter": 0.18610002007335424,
+          "relevance": 12.43510001222603,
+          "bundle_search": 1169.661799998721,
+          "python_total": 1212.6381999987643,
+          "response_and_orchestration": 0.18799994722940028
+        },
+        {
+          "catalog_read_validate": 3.302800003439188,
+          "nlu_mock_gateway": 40.5882999766618,
+          "strict_filter": 0.15249999705702066,
+          "relevance": 12.271299987332895,
+          "bundle_search": 1033.3680000039749,
+          "python_total": 1089.8502999916673,
+          "response_and_orchestration": 0.1674000232014805
+        },
+        {
+          "catalog_read_validate": 2.9417999903671443,
+          "nlu_mock_gateway": 26.300899975467473,
+          "strict_filter": 0.15029998030513525,
+          "relevance": 12.325799994869158,
+          "bundle_search": 974.7326000069734,
+          "python_total": 1016.7854000173975,
+          "response_and_orchestration": 0.3340000694151968
+        },
+        {
+          "catalog_read_validate": 2.941999991890043,
+          "nlu_mock_gateway": 25.466499995673075,
+          "strict_filter": 0.16500000492669642,
+          "relevance": 11.366499995347112,
+          "bundle_search": 941.194799990626,
+          "python_total": 981.3017999986187,
+          "response_and_orchestration": 0.16700002015568316
+        },
+        {
+          "catalog_read_validate": 2.810900012264028,
+          "nlu_mock_gateway": 23.884299997007474,
+          "strict_filter": 0.1647000026423484,
+          "relevance": 11.460900015663356,
+          "bundle_search": 885.0510999909602,
+          "python_total": 923.5551999881864,
+          "response_and_orchestration": 0.18329996964894235
+        },
+        {
+          "catalog_read_validate": 2.765699988231063,
+          "nlu_mock_gateway": 33.53960000094958,
+          "strict_filter": 0.15100001473911107,
+          "relevance": 10.785899998154491,
+          "bundle_search": 903.6898000049405,
+          "python_total": 951.1120000097435,
+          "response_and_orchestration": 0.18000000272877514
+        },
+        {
+          "catalog_read_validate": 2.9571999912150204,
+          "nlu_mock_gateway": 56.44889999530278,
+          "strict_filter": 0.2727000101003796,
+          "relevance": 17.13029999518767,
+          "bundle_search": 924.5261999894865,
+          "python_total": 1001.5472999948543,
+          "response_and_orchestration": 0.21200001356191933
+        },
+        {
+          "catalog_read_validate": 2.658699988387525,
+          "nlu_mock_gateway": 38.661900005536154,
+          "strict_filter": 0.2798000059556216,
+          "relevance": 17.021600011503324,
+          "bundle_search": 902.2839000099339,
+          "python_total": 961.1111999838613,
+          "response_and_orchestration": 0.20529996254481375
+        },
+        {
+          "catalog_read_validate": 2.617099991766736,
+          "nlu_mock_gateway": 23.406099993735552,
+          "strict_filter": 0.1652000064495951,
+          "relevance": 11.278899997705594,
+          "bundle_search": 911.8210000160616,
+          "python_total": 949.4600000034552,
+          "response_and_orchestration": 0.17169999773614109
+        },
+        {
+          "catalog_read_validate": 2.669100009370595,
+          "nlu_mock_gateway": 40.06249998928979,
+          "strict_filter": 0.15590002294629812,
+          "relevance": 12.434600008418784,
+          "bundle_search": 919.7439000126906,
+          "python_total": 975.2473999978974,
+          "response_and_orchestration": 0.18139995518140495
+        },
+        {
+          "catalog_read_validate": 3.6958999990019947,
+          "nlu_mock_gateway": 43.35169997648336,
+          "strict_filter": 0.16840000171214342,
+          "relevance": 12.403099972289056,
+          "bundle_search": 964.0210999932606,
+          "python_total": 1023.8220999890473,
+          "response_and_orchestration": 0.181900046300143
+        }
+      ],
+      "process_samples_ms": [
+        1513.9855000015814,
+        1496.8213000101969,
+        1511.8677999998908,
+        1512.8952999948524,
+        1504.9347000021953,
+        1728.4465999982785,
+        1515.0126999942586,
+        1513.5530000261497,
+        1549.0457999985665,
+        1499.9996999977157,
+        1498.3694000111427,
+        1611.4870000164956,
+        1487.4503999890294,
+        1566.1950999929104,
+        1521.9727999938186,
+        1515.8015000051819,
+        1551.7798999790102,
+        1493.6564000090584,
+        1518.6457999807317,
+        1565.1050000160467,
+        1744.5404999889433,
+        1564.2479000089224,
+        1644.8953000071924,
+        1471.1690999974962,
+        1496.7505999957211,
+        1516.3362000021152,
+        1467.851299996255,
+        1489.2004999856,
+        1486.1352999869268,
+        1598.9891000208445
+      ],
+      "example_response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "table-000",
+              "chair-001",
+              "lamp-002"
+            ],
+            "total_rub": 3003,
+            "explanation": "Самовывоз · Таганрог. Стол — 1 000 ₽, Кресло — 1 001 ₽, Лампа — 1 002 ₽. Итого 3 003 ₽. Запас бюджета 11 997 ₽."
+          },
+          {
+            "listing_ids": [
+              "table-000",
+              "chair-001",
+              "lamp-005"
+            ],
+            "total_rub": 3006,
+            "explanation": "Самовывоз · Таганрог. Стол — 1 000 ₽, Кресло — 1 001 ₽, Лампа — 1 005 ₽. Итого 3 006 ₽. Запас бюджета 11 994 ₽."
+          },
+          {
+            "listing_ids": [
+              "table-000",
+              "chair-004",
+              "lamp-002"
+            ],
+            "total_rub": 3006,
+            "explanation": "Самовывоз · Таганрог. Стол — 1 000 ₽, Кресло — 1 004 ₽, Лампа — 1 002 ₽. Итого 3 006 ₽. Запас бюджета 11 994 ₽."
+          }
+        ]
+      }
+    }
+  },
+  "mock_gateway_calls": 122,
+  "stdout_and_schema_validated": true,
+  "catalog_text_sent_to_gateway": false
+}

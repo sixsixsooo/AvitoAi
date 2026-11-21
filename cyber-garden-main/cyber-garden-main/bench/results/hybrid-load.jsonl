@@ -1,0 +1,8 @@
+{"index": "smartset-1000000", "mode": "expanded", "cycle": 0, "n": 12, "latency_ms": {"p50": 22.638, "p95": 123.626, "p99": 123.626}}
+{"index": "smartset-1000000", "mode": "expanded", "cycle": 1, "n": 12, "latency_ms": {"p50": 12.333, "p95": 21.171, "p99": 21.171}}
+{"index": "smartset-1000000", "mode": "hybrid", "cycle": 0, "n": 12, "latency_ms": {"p50": 22.851, "p95": 98.224, "p99": 98.224}}
+{"index": "smartset-1000000", "mode": "hybrid", "cycle": 1, "n": 12, "latency_ms": {"p50": 12.831, "p95": 17.04, "p99": 17.04}}
+{"index": "smartset-10000000", "mode": "expanded", "cycle": 0, "n": 12, "latency_ms": {"p50": 46.477, "p95": 353.753, "p99": 353.753}}
+{"index": "smartset-10000000", "mode": "expanded", "cycle": 1, "n": 12, "latency_ms": {"p50": 32.184, "p95": 57.716, "p99": 57.716}}
+{"index": "smartset-10000000", "mode": "hybrid", "cycle": 0, "n": 12, "latency_ms": {"p50": 31.802, "p95": 71.11, "p99": 71.11}}
+{"index": "smartset-10000000", "mode": "hybrid", "cycle": 1, "n": 12, "latency_ms": {"p50": 30.051, "p95": 40.65, "p99": 40.65}}

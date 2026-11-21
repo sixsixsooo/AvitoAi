@@ -1,0 +1,185 @@
+{
+  "finished_at_utc": "2026-11-21T06:19:09.140543+00:00",
+  "confirmed_defects": [
+    {
+      "problem": "off-topic message reused old ok",
+      "before": "FAIL in CLI and Web API",
+      "fix": "decision clarification preserves purchase state and blocks selection",
+      "test": "test_off_topic_preserves_state_and_resume_works_through_web / test_off_topic_through_real_cli"
+    },
+    {
+      "problem": "ambiguous item price reused old ok",
+      "before": "FAIL for three formulations",
+      "fix": "clarify item price versus whole-bundle budget; confirm chair subtype",
+      "test": "test_bare_item_price_is_not_total_budget"
+    },
+    {
+      "problem": "missing supported items prompted for budget",
+      "before": "FAIL for category, city and hard attribute cases",
+      "fix": "prove strict candidate absence before asking only for budget",
+      "test": "test_missing_supported_category_before_budget_question / test_missing_in_city_and_hard_attribute_before_budget_question"
+    },
+    {
+      "problem": "typed new dialogue did not reset context",
+      "before": "FAIL",
+      "fix": "explicit replay and Gemma history boundary; frontend reset",
+      "test": "test_new_dialogue_resets_even_if_model_repeats_old_state"
+    },
+    {
+      "problem": "cancelled wish resurrected from old dialogue",
+      "before": "FAIL",
+      "fix": "replay cancellation in local and grounded model preferences",
+      "test": "test_cancel_last_preference_does_not_resurrect_from_model"
+    },
+    {
+      "problem": "compound unimportant-width wording retained hard bound",
+      "before": "FAIL",
+      "fix": "normalize phrase and explicitly clear the named attribute",
+      "test": "test_composition_edits_and_clear_width"
+    },
+    {
+      "problem": "off-topic language outside local word list lost categories",
+      "before": "FAIL",
+      "fix": "use Gemma intent while preserving confirmed previous facts",
+      "test": "test_model_semantics_preserve_state_for_unlisted_off_topic_language"
+    },
+    {
+      "problem": "off-topic dropped earlier model-only budget/wish",
+      "before": "FAIL",
+      "fix": "retain budget only with earlier buyer evidence and ground wishes only in prior buyer turns",
+      "test": "test_off_topic_preserves_budget_and_wishes_resolved_only_by_gemma"
+    },
+    {
+      "problem": "frontend stale pending cards / no_match explanation / repeated-result wording / typed reset",
+      "before": "four functional DOM tests FAIL",
+      "fix": "clear cards on submit; explain absence; identify unchanged validated results; reset history",
+      "test": "tests/ui_dialogue.cjs, 5/5 PASS"
+    }
+  ],
+  "audit": {
+    "backend_stateless": true,
+    "stored_options_reused": false,
+    "latest_user_message_was_sent": true,
+    "gemma_context": "All buyer turns plus latest assistant by default; full history for uncertain turns; explicit reset trims history",
+    "same_results_can_be_valid": "table alias preserves other categories and constraints, and backend recomputes selection"
+  },
+  "changed_files": [
+    "bench/dialogue_live.py",
+    "bench/results/dialogue-live-quality-cases.jsonl",
+    "bench/results/dialogue-live-quality-http.jsonl",
+    "bench/results/dialogue-live-quality-rerun1-cases.jsonl",
+    "bench/results/dialogue-live-quality-rerun1-http.jsonl",
+    "bench/results/dialogue-live-quality-rerun1.json",
+    "bench/results/dialogue-live-web-cases.jsonl",
+    "bench/results/dialogue-live-web-http.jsonl",
+    "bench/results/dialogue-live-web.json",
+    "bench/results/dialogue-model-context-before.txt",
+    "bench/results/dialogue-offline-final.txt",
+    "bench/results/dialogue-offline-rerun2.txt",
+    "bench/results/dialogue-offline.txt",
+    "bench/results/dialogue-regression-before.txt",
+    "bench/results/dialogue-semantic-before.txt",
+    "bench/results/dialogue-ui-after.txt",
+    "bench/results/dialogue-ui-before.txt",
+    "bench/results/dialogue-ui-final.txt",
+    "tests/test_dialogue_flow.py",
+    "tests/ui_dialogue.cjs",
+    "README.md",
+    "buyer/cli.py",
+    "buyer/conversation.py",
+    "buyer/demo.py",
+    "buyer/indexed.py",
+    "buyer/model.py",
+    "buyer/preferences.py",
+    "buyer/prompt.py",
+    "buyer/query_parser.py",
+    "buyer/selection.py",
+    "buyer/ui/app.js"
+  ],
+  "offline": {
+    "real_gemma": false,
+    "tests": 113,
+    "passed": true,
+    "elapsed_s": 56.474,
+    "log": "bench/results/dialogue-offline-rerun2.txt"
+  },
+  "frontend": {
+    "test": "node tests/ui_dialogue.cjs",
+    "passed": 5,
+    "total": 5,
+    "real_browser": false
+  },
+  "full_real_nlu": {
+    "report": "bench/results/dialogue-live-quality-rerun1.json",
+    "executed": 36,
+    "passed": 36,
+    "requirements_passed": 36,
+    "preferences_passed": 36,
+    "transport_errors": 0
+  },
+  "real_web_api": {
+    "report": "bench/results/dialogue-live-web.json",
+    "actual_http_post": true,
+    "executed": 15,
+    "passed": 15,
+    "generations": 15,
+    "frontend_secret_absent": true
+  },
+  "real_generations_completed_final_runs": 51,
+  "official_envelope_and_response_schemas_valid": true,
+  "frozen_files_and_env_unchanged": {
+    "tests/real_nlu_cases.py": true,
+    "tests/test_conversation.py": true,
+    "schemas/response.schema.json": true,
+    "schemas/llm-response.schema.json": true,
+    "buyer/ranking.py": true,
+    ".env": true
+  },
+  "hard_filter_and_bundle_functions_unchanged": {
+    "matches": true,
+    "filter_listings": true,
+    "_cheapest": true,
+    "_explain": true
+  },
+  "interrupted_prior_nlu": {
+    "executed": 11,
+    "passed": 9,
+    "transport_timeouts": 2,
+    "complete": false,
+    "included_in_final_metrics": false
+  },
+  "demo": {
+    "url": "http://127.0.0.1:8765",
+    "pid": 24164,
+    "checks": [
+      {
+        "path": "/",
+        "status": 200
+      },
+      {
+        "path": "/app.js",
+        "status": 200
+      },
+      {
+        "path": "/api/catalog",
+        "status": 200,
+        "catalogue": {
+          "total": 111,
+          "cities": [
+            "Таганрог",
+            "Ростов-на-Дону",
+            "Азов"
+          ]
+        }
+      }
+    ]
+  },
+  "credential_leak_files": [],
+  "limitations": [
+    "Conservative clarification for ambiguous or unrecognized buyer turns",
+    "A bare 100 cm is exact width; use explicit до/не шире for a maximum",
+    "Frontend interactions validated by Node DOM harness, not a full browser engine",
+    "Real OpenSearch was not started or verified in this task",
+    "Real gateway availability remains external; transport errors are technical errors, never no_match"
+  ]
+}

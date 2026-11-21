@@ -1,0 +1,116 @@
+{
+  "real_cli": {
+    "summary": "bench/results/live-gemma-cli-final-summary.json",
+    "planned": 21,
+    "passed": 21,
+    "original_cases_unchanged": true,
+    "successful_real_generations": 21,
+    "http_attempts": 21,
+    "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+    "model": "google/gemma-4-31B-it",
+    "configuration_source": "root .env",
+    "official_response_and_llm_schemas_valid": true,
+    "extra_ambiguous_case": {
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Стол. До 100. Таганрог."
+          }
+        ]
+      },
+      "response": {
+        "status": "clarify",
+        "questions": [
+          {
+            "field": "budget_rub",
+            "text": "Какой у вас максимальный бюджет на весь комплект?"
+          }
+        ]
+      },
+      "final_state": {
+        "kind": "resolved_state",
+        "requirements": {
+          "city_id": "taganrog",
+          "budget_rub": null,
+          "categories": [
+            "table"
+          ],
+          "width_cm": [],
+          "adjustable_height": null,
+          "color_temperature_k": []
+        },
+        "preferences": [],
+        "unresolved": [
+          "width_cm"
+        ],
+        "ambiguous_attributes": [
+          "width_cm"
+        ]
+      },
+      "raw_model_response": {
+        "model": "google/gemma-4-31B-it",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "{\"city_id\":\"taganrog\",\"budget_rub\":null,\"categories\":[\"table\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+            }
+          }
+        ],
+        "id": "chatcmpl-R9OpQTaNc9jIxlMRWHdNO1Bo",
+        "object": "chat.completion",
+        "created": 1795230374,
+        "usage": {
+          "prompt_tokens": 1118,
+          "completion_tokens": 41,
+          "total_tokens": 1159,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    }
+  },
+  "linux": {
+    "clean_hosted_runner": true,
+    "workflow_run_url": "https://github.com/ashuklin08/cyber-garden/actions/runs/44859276436",
+    "source_commit": "c110bdcdba8c42a4d4e0bed8c86e4bb971c61259",
+    "environment": "Linux ip-10-0-138-222 7.0.0-1014-aws #14~24.04.1-Ubuntu SMP PREEMPT Fri Sep 18 21:24:59 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux\nPRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\nPython 3.12.16\nc110bdcdba8c42a4d4e0bed8c86e4bb971c61259\n",
+    "test_command": "python3 -m unittest discover -v",
+    "diagnostic_outer_timeout_s": 180,
+    "runs": [
+      {
+        "attempt": 1,
+        "tests": 97,
+        "seconds": 9.727,
+        "exit_code": 0,
+        "result": "OK",
+        "test_children_or_zombies_remaining": []
+      },
+      {
+        "attempt": 2,
+        "tests": 97,
+        "seconds": 9.697,
+        "exit_code": 0,
+        "result": "OK",
+        "test_children_or_zombies_remaining": []
+      }
+    ],
+    "hang_reproduced": false,
+    "timeouts_increased": false,
+    "tests_disabled": false,
+    "real_gemma_used": false,
+    "credential_files_uploaded": false
+  },
+  "production_modules_changed": false,
+  "opensearch_started": false,
+  "temporary_branch": "codex/linux-regression-20261121-030501",
+  "temporary_branch_deleted": true,
+  "credential_scan": {
+    "leaking_files": [],
+    "env_ignored": true
+  }
+}

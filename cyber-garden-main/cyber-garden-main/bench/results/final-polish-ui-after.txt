@@ -1,0 +1,10 @@
+PASS stale cards disappear while a new request is pending
+PASS no_match displays an explanation outside raw JSON
+PASS equal verified results are described honestly
+PASS reset button clears history, cards and evidence
+PASS typed new dialogue starts an isolated request
+PASS lamp alternatives are individual listings
+PASS one table is one listing
+PASS table chair lamp remain a bundle
+PASS changed bundle receives a fresh result message
+PASS unchanged results name goods and bundles separately

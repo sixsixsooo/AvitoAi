@@ -1,0 +1,381 @@
+{
+  "started_at_utc": "2026-11-21T02:10:53.390738+00:00",
+  "team": "team-06",
+  "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+  "model": "google/gemma-4-31B-it",
+  "configuration_source": "root .env",
+  "planned": 36,
+  "executed": 36,
+  "passed": 30,
+  "requirements_passed": 30,
+  "preferences_passed": 31,
+  "transport_errors": 5,
+  "gateway_latency_ms": {
+    "p50": 30799.956,
+    "p95": 64369.454,
+    "p99": 87797.745
+  },
+  "tokens_in": 35126,
+  "tokens_out": 1611,
+  "local_search_ms": {
+    "p50": 0.097,
+    "p95": 6.091,
+    "p99": 6.51
+  },
+  "failures": [
+    {
+      "name": "бюджет: 25 тысяч",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол в Азове."
+        },
+        {
+          "role": "assistant",
+          "text": "Какой бюджет на комплект?"
+        },
+        {
+          "role": "user",
+          "text": "25 тысяч"
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "azov",
+        "budget_rub": 25000,
+        "categories": [
+          "table"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "real_gemma": true,
+      "local_nlu_ms": 0.8042000117711723,
+      "success": false,
+      "error": "Соединение со шлюзом Gemma не установлено или истекло время ожидания.",
+      "requirements_pass": false,
+      "preferences_pass": false,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T02:18:46.161365+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": "connection_error"
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T02:18:46.137655+00:00",
+          "success": false,
+          "error": "Соединение со шлюзом Gemma не установлено или истекло время ожидания.",
+          "gateway_ms": 89332.198
+        }
+      ],
+      "passed": false
+    },
+    {
+      "name": "число ширины без единицы",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол шириной до 100. Таганрог. Бюджет 15000 рублей."
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "real_gemma": true,
+      "local_nlu_ms": 0.7070999999996275,
+      "success": false,
+      "error": "Соединение со шлюзом Gemma не установлено или истекло время ожидания.",
+      "requirements_pass": false,
+      "preferences_pass": false,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T02:23:52.053374+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": "connection_error"
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T02:23:52.033606+00:00",
+          "success": false,
+          "error": "Соединение со шлюзом Gemma не установлено или истекло время ожидания.",
+          "gateway_ms": 89357.62
+        }
+      ],
+      "passed": false
+    },
+    {
+      "name": "добавление совместимого пожелания",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Деревянный стол и удобное кресло. Таганрог. Бюджет 15000 рублей."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал комплект."
+        },
+        {
+          "role": "user",
+          "text": "Всё тот же комплект, но теперь желательно мягкое кресло."
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "table",
+          "chair"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [
+        {
+          "category": "table",
+          "text": "деревянный",
+          "attribute": null
+        },
+        {
+          "category": "chair",
+          "text": "удобное",
+          "attribute": null
+        },
+        {
+          "category": "chair",
+          "text": "мягкое",
+          "attribute": null
+        }
+      ],
+      "real_gemma": true,
+      "local_nlu_ms": 2.9255000117700547,
+      "success": false,
+      "error": "Соединение со шлюзом Gemma не установлено или истекло время ожидания.",
+      "requirements_pass": false,
+      "preferences_pass": false,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T02:25:58.577318+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": "connection_error"
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T02:25:58.557499+00:00",
+          "success": false,
+          "error": "Соединение со шлюзом Gemma не установлено или истекло время ожидания.",
+          "gateway_ms": 60756.464
+        }
+      ],
+      "passed": false
+    },
+    {
+      "name": "замена пожелания",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Мягкое кресло. Таганрог. Бюджет 15000 рублей."
+        },
+        {
+          "role": "assistant",
+          "text": "Подобрал кресло."
+        },
+        {
+          "role": "user",
+          "text": "Вместо мягкого теперь удобное кресло."
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 15000,
+        "categories": [
+          "chair"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [
+        {
+          "category": "chair",
+          "text": "удобное",
+          "attribute": null
+        }
+      ],
+      "real_gemma": true,
+      "local_nlu_ms": 1.4430000155698508,
+      "success": false,
+      "error": "Соединение со шлюзом Gemma не установлено или истекло время ожидания.",
+      "requirements_pass": false,
+      "preferences_pass": false,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T02:28:27.187727+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": "connection_error"
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T02:28:27.165104+00:00",
+          "success": false,
+          "error": "Соединение со шлюзом Gemma не установлено или истекло время ожидания.",
+          "gateway_ms": 60795.167
+        }
+      ],
+      "passed": false
+    },
+    {
+      "name": "неизвестная категория велосипед",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Кресло и велосипед в Таганроге, бюджет 5000 рублей."
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": 5000,
+        "categories": [],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "real_gemma": true,
+      "local_nlu_ms": 1.4426000125240535,
+      "success": false,
+      "error": "Соединение со шлюзом Gemma не установлено или истекло время ожидания.",
+      "requirements_pass": false,
+      "preferences_pass": false,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T02:29:49.015833+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": "connection_error"
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T02:29:48.991191+00:00",
+          "success": false,
+          "error": "Соединение со шлюзом Gemma не установлено или истекло время ожидания.",
+          "gateway_ms": 63025.712
+        }
+      ],
+      "passed": false
+    },
+    {
+      "name": "голое число не бюджет",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Стол. До 100. Таганрог."
+        }
+      ],
+      "expected_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": null,
+        "categories": [
+          "table"
+        ],
+        "width_cm": [],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "expected_preferences": [],
+      "real_gemma": true,
+      "local_nlu_ms": 0.374700000975281,
+      "resolve_ms": 12683.91639998299,
+      "actual_requirements": {
+        "city_id": "taganrog",
+        "budget_rub": null,
+        "categories": [
+          "table"
+        ],
+        "width_cm": [
+          {
+            "operation": "lte",
+            "value": "100"
+          }
+        ],
+        "adjustable_height": null,
+        "color_temperature_k": []
+      },
+      "actual_preferences": [],
+      "trace": {
+        "model": "google/gemma-4-31B-it",
+        "prompt_tokens": 1118,
+        "completion_tokens": 48,
+        "elapsed_ms": 12688,
+        "category_source": "Gemma"
+      },
+      "requirements_pass": false,
+      "preferences_pass": true,
+      "attribute_questions": [],
+      "selection": {
+        "status": "clarify",
+        "questions": [
+          {
+            "field": "budget_rub",
+            "text": "Какой у вас максимальный бюджет на весь комплект?"
+          }
+        ]
+      },
+      "local_search_ms": 0.006500020390376449,
+      "success": true,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T02:30:52.049267+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T02:30:52.031107+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":null,\"categories\":[\"table\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R0wjcPrNAJHNkiYI9MwwEDJT",
+            "object": "chat.completion",
+            "created": 1795228265,
+            "usage": {
+              "prompt_tokens": 1118,
+              "completion_tokens": 48,
+              "total_tokens": 1166,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 12682.328
+        }
+      ],
+      "passed": false
+    }
+  ]
+}

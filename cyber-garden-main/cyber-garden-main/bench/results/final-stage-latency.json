@@ -1,0 +1,543 @@
+{
+  "started_at_utc": "2026-11-21T07:04:55.453036+00:00",
+  "team": "team-06",
+  "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+  "model": "google/gemma-4-31B-it",
+  "configuration_source": "root .env",
+  "complete": true,
+  "planned": 15,
+  "executed": 15,
+  "passed": 15,
+  "errors": 0,
+  "successful_real_http_generations": 15,
+  "http_attempts": 15,
+  "stages_ms": {
+    "gemma_ms": {
+      "p50": 50527.02,
+      "p95": 55039.094,
+      "p99": 55039.094
+    },
+    "resolve_ms": {
+      "p50": 50528.114,
+      "p95": 55040.591,
+      "p99": 55040.591
+    },
+    "search_ms": {
+      "p50": 0.068,
+      "p95": 0.349,
+      "p99": 0.349
+    },
+    "total_ms": {
+      "p50": 50528.417,
+      "p95": 55040.978,
+      "p99": 55040.978
+    }
+  },
+  "stage_max_ms": {
+    "gemma_ms": 55039.094,
+    "resolve_ms": 55040.591,
+    "search_ms": 0.349,
+    "total_ms": 55040.978
+  },
+  "search_performed_ms": {
+    "p50": 0.107,
+    "p95": 0.349,
+    "p99": 0.349
+  },
+  "search_skipped_count": 5,
+  "latency_30_70s_reproduced": true,
+  "requests_over_30s": [
+    "initial_bundle",
+    "off_topic",
+    "resume_after_off_topic",
+    "only_table",
+    "remove_chair",
+    "budget_update",
+    "missing_lamps_without_budget",
+    "infeasible_bundle_budget",
+    "single_lamp",
+    "pancake_recipe",
+    "pythagorean_theorem",
+    "unsupported_refrigerator",
+    "unsupported_wardrobe",
+    "organizer_single_table",
+    "organizer_full_bundle"
+  ],
+  "clock": "perf_counter for all nested Web stages; existing ModelTrace clock unchanged",
+  "gemma_definition": "extract call including preparation, actual gateway request and response parsing; no search",
+  "resolve_definition": "full resolve including Gemma; nested, not additive to gemma_ms",
+  "total_definition": "handler start through response serialization, immediately before sending headers/body",
+  "privacy": {
+    "request_text_saved": false,
+    "authorization_saved": false,
+    "response_body_saved": false
+  },
+  "mock_measurements_included": false,
+  "cases": [
+    {
+      "case_id": "initial_bundle",
+      "expected_status": "ok",
+      "real_gemma": true,
+      "client_wall_ms": 38915.982,
+      "http_status": 200,
+      "gemma_ms": 38906.787,
+      "resolve_ms": 38912.511,
+      "search_ms": 0.211,
+      "total_ms": 38913.433,
+      "model_trace_elapsed_ms": 38906,
+      "response_status": "ok",
+      "listing_ids": [
+        [
+          "t80",
+          "c",
+          "l"
+        ],
+        [
+          "t100",
+          "c",
+          "l"
+        ]
+      ],
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:04:55.507625+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "off_topic",
+      "expected_status": "clarify",
+      "real_gemma": true,
+      "client_wall_ms": 49283.188,
+      "http_status": 200,
+      "gemma_ms": 49257.03,
+      "resolve_ms": 49258.402,
+      "search_ms": 0.0,
+      "total_ms": 49258.762,
+      "model_trace_elapsed_ms": 49266,
+      "response_status": "clarify",
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:05:34.460318+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "resume_after_off_topic",
+      "expected_status": "ok",
+      "real_gemma": true,
+      "client_wall_ms": 43853.77,
+      "http_status": 200,
+      "gemma_ms": 43848.067,
+      "resolve_ms": 43851.05,
+      "search_ms": 0.216,
+      "total_ms": 43851.849,
+      "model_trace_elapsed_ms": 43843,
+      "response_status": "ok",
+      "listing_ids": [
+        [
+          "t80",
+          "c",
+          "l"
+        ],
+        [
+          "t100",
+          "c",
+          "l"
+        ]
+      ],
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:06:23.723239+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "only_table",
+      "expected_status": "ok",
+      "real_gemma": true,
+      "client_wall_ms": 51339.97,
+      "http_status": 200,
+      "gemma_ms": 51324.501,
+      "resolve_ms": 51326.423,
+      "search_ms": 0.107,
+      "total_ms": 51326.954,
+      "model_trace_elapsed_ms": 51313,
+      "response_status": "ok",
+      "listing_ids": [
+        [
+          "t80"
+        ],
+        [
+          "t100"
+        ]
+      ],
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:07:07.603928+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "remove_chair",
+      "expected_status": "ok",
+      "real_gemma": true,
+      "client_wall_ms": 52564.919,
+      "http_status": 200,
+      "gemma_ms": 52535.729,
+      "resolve_ms": 52540.058,
+      "search_ms": 0.141,
+      "total_ms": 52540.734,
+      "model_trace_elapsed_ms": 52531,
+      "response_status": "ok",
+      "listing_ids": [
+        [
+          "t80",
+          "l"
+        ],
+        [
+          "t100",
+          "l"
+        ]
+      ],
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:07:58.972260+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "budget_update",
+      "expected_status": "ok",
+      "real_gemma": true,
+      "client_wall_ms": 52053.423,
+      "http_status": 200,
+      "gemma_ms": 52023.751,
+      "resolve_ms": 52026.252,
+      "search_ms": 0.201,
+      "total_ms": 52027.33,
+      "model_trace_elapsed_ms": 52015,
+      "response_status": "ok",
+      "listing_ids": [
+        [
+          "t80",
+          "c",
+          "l"
+        ],
+        [
+          "t100",
+          "c",
+          "l"
+        ]
+      ],
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:08:51.545294+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "missing_lamps_without_budget",
+      "expected_status": "no_match",
+      "real_gemma": true,
+      "client_wall_ms": 49490.354,
+      "http_status": 200,
+      "gemma_ms": 49470.972,
+      "resolve_ms": 49471.456,
+      "search_ms": 0.035,
+      "total_ms": 49471.689,
+      "model_trace_elapsed_ms": 49469,
+      "response_status": "no_match",
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:09:43.604810+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "no_lamps",
+      "catalogue_records": 6
+    },
+    {
+      "case_id": "infeasible_bundle_budget",
+      "expected_status": "no_match",
+      "real_gemma": true,
+      "client_wall_ms": 51788.616,
+      "http_status": 200,
+      "gemma_ms": 51761.821,
+      "resolve_ms": 51763.198,
+      "search_ms": 0.042,
+      "total_ms": 51763.653,
+      "model_trace_elapsed_ms": 51766,
+      "response_status": "no_match",
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:10:33.117153+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "single_lamp",
+      "expected_status": "ok",
+      "real_gemma": true,
+      "client_wall_ms": 46765.073,
+      "http_status": 200,
+      "gemma_ms": 46736.731,
+      "resolve_ms": 46737.598,
+      "search_ms": 0.068,
+      "total_ms": 46738.051,
+      "model_trace_elapsed_ms": 46734,
+      "response_status": "ok",
+      "listing_ids": [
+        [
+          "l"
+        ]
+      ],
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:11:24.920937+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "pancake_recipe",
+      "expected_status": "clarify",
+      "real_gemma": true,
+      "client_wall_ms": 50540.2,
+      "http_status": 200,
+      "gemma_ms": 50527.02,
+      "resolve_ms": 50528.114,
+      "search_ms": 0.0,
+      "total_ms": 50528.417,
+      "model_trace_elapsed_ms": 50532,
+      "response_status": "clarify",
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:12:11.686928+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "pythagorean_theorem",
+      "expected_status": "clarify",
+      "real_gemma": true,
+      "client_wall_ms": 55052.743,
+      "http_status": 200,
+      "gemma_ms": 55039.094,
+      "resolve_ms": 55040.591,
+      "search_ms": 0.0,
+      "total_ms": 55040.978,
+      "model_trace_elapsed_ms": 55047,
+      "response_status": "clarify",
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:13:02.238671+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "unsupported_refrigerator",
+      "expected_status": "clarify",
+      "real_gemma": true,
+      "client_wall_ms": 50712.006,
+      "http_status": 200,
+      "gemma_ms": 50703.979,
+      "resolve_ms": 50710.391,
+      "search_ms": 0.0,
+      "total_ms": 50710.586,
+      "model_trace_elapsed_ms": 50703,
+      "response_status": "clarify",
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:13:57.300313+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "unsupported_wardrobe",
+      "expected_status": "clarify",
+      "real_gemma": true,
+      "client_wall_ms": 50644.908,
+      "http_status": 200,
+      "gemma_ms": 50641.86,
+      "resolve_ms": 50643.338,
+      "search_ms": 0.0,
+      "total_ms": 50643.516,
+      "model_trace_elapsed_ms": 50641,
+      "response_status": "clarify",
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:14:48.031509+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ],
+      "catalogue_kind": "full",
+      "catalogue_records": 8
+    },
+    {
+      "case_id": "organizer_single_table",
+      "expected_status": "ok",
+      "real_gemma": true,
+      "catalogue_kind": "organizer",
+      "catalogue_records": 111,
+      "client_wall_ms": 37503.536,
+      "http_status": 200,
+      "gemma_ms": 37496.367,
+      "resolve_ms": 37501.302,
+      "search_ms": 0.101,
+      "total_ms": 37501.746,
+      "model_trace_elapsed_ms": 37484,
+      "response_status": "ok",
+      "listing_ids": [
+        [
+          "demo-1-1-10"
+        ],
+        [
+          "demo-1-1-04"
+        ],
+        [
+          "demo-1-1-02"
+        ]
+      ],
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:16:11.516381+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "case_id": "organizer_full_bundle",
+      "expected_status": "ok",
+      "real_gemma": true,
+      "catalogue_kind": "organizer",
+      "catalogue_records": 111,
+      "client_wall_ms": 45200.036,
+      "http_status": 200,
+      "gemma_ms": 45194.207,
+      "resolve_ms": 45196.27,
+      "search_ms": 0.349,
+      "total_ms": 45197.227,
+      "model_trace_elapsed_ms": 45203,
+      "response_status": "ok",
+      "listing_ids": [
+        [
+          "demo-1-1-10",
+          "demo-1-2-05",
+          "demo-1-3-04"
+        ],
+        [
+          "demo-1-1-10",
+          "demo-1-2-05",
+          "demo-1-3-09"
+        ],
+        [
+          "demo-1-1-10",
+          "demo-1-2-05",
+          "demo-1-3-01"
+        ]
+      ],
+      "passed": true,
+      "http_attempts": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T07:16:49.038805+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        }
+      ]
+    }
+  ],
+  "finished_at_utc": "2026-11-21T07:19:41.536220+00:00",
+  "stage_min_ms": {
+    "gemma_ms": 37496.367,
+    "resolve_ms": 37501.302,
+    "search_ms": 0.0,
+    "total_ms": 37501.746
+  },
+  "percentile_method": "nearest-rank, ceil(percentile * sample_count / 100); 15 samples",
+  "runs": [
+    "bench/results/final-stage-latency-controls.json",
+    "bench/results/final-stage-latency-organizer.json"
+  ],
+  "catalogues": {
+    "controlled_full_records": 8,
+    "controlled_no_lamps_records": 6,
+    "organizer_records": 111
+  },
+  "performance_optimization_claimed": false
+}

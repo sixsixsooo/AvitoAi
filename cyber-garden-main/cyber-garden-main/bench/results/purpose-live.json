@@ -1,0 +1,313 @@
+{
+  "started_at_utc": "2026-11-21T07:38:01.740113+00:00",
+  "team": "team-06",
+  "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+  "model": "google/gemma-4-31B-it",
+  "configuration_source": "root .env",
+  "cases": [
+    {
+      "query": "Мне нужно кресло, на котором удобно сидеть моей собаке, покажи варианты.",
+      "step": 0,
+      "result": {
+        "response": {
+          "status": "clarify",
+          "questions": [
+            {
+              "field": "budget_rub",
+              "text": "Какой у вас максимальный бюджет на весь комплект?"
+            },
+            {
+              "field": "city_id",
+              "text": "В каком городе нужен самовывоз — Таганрог, Ростов-на-Дону или Азов?"
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1388,
+          "completion_tokens": 58,
+          "elapsed_ms": 7341,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": null
+          },
+          {
+            "label": "Бюджет",
+            "value": null
+          },
+          {
+            "label": "Состав",
+            "value": "Кресло"
+          }
+        ],
+        "budget_rub": null,
+        "eligible": [],
+        "minimum_total_rub": null,
+        "items": {},
+        "preferences": [
+          {
+            "category": "chair",
+            "text": "удобно",
+            "attribute": null
+          },
+          {
+            "category": "chair",
+            "text": "на котором удобно сидеть моей собаке",
+            "attribute": null
+          }
+        ]
+      }
+    },
+    {
+      "query": "Мне нужно кресло, на котором удобно сидеть моей собаке, покажи варианты.",
+      "step": 1,
+      "result": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "demo-1-2-12"
+              ],
+              "total_rub": 4800,
+              "explanation": "Самовывоз · Таганрог. Кресло — 4 800 ₽ (без регулировки высоты). Итого 4 800 ₽. Запас бюджета 10 200 ₽. Назначение «на котором удобно сидеть моей собаке» учтено как пожелание. Пригодность для этого использования не подтверждена структурированными характеристиками каталога."
+            },
+            {
+              "listing_ids": [
+                "demo-1-2-05"
+              ],
+              "total_rub": 1700,
+              "explanation": "Самовывоз · Таганрог. Кресло — 1 700 ₽ (регулировка высоты есть). Итого 1 700 ₽. Запас бюджета 13 300 ₽. Назначение «на котором удобно сидеть моей собаке» учтено как пожелание. Пригодность для этого использования не подтверждена структурированными характеристиками каталога."
+            },
+            {
+              "listing_ids": [
+                "demo-1-2-02"
+              ],
+              "total_rub": 1900,
+              "explanation": "Самовывоз · Таганрог. Кресло — 1 900 ₽ (без регулировки высоты). Итого 1 900 ₽. Запас бюджета 13 100 ₽. Назначение «на котором удобно сидеть моей собаке» учтено как пожелание. Пригодность для этого использования не подтверждена структурированными характеристиками каталога."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1443,
+          "completion_tokens": 64,
+          "elapsed_ms": 3839,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Кресло"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Кресло",
+            "count": 13
+          }
+        ],
+        "minimum_total_rub": 1700,
+        "items": {
+          "demo-1-2-02": {
+            "category": "Кресло",
+            "category_id": "chair",
+            "title": "Компьютерное кресло чёрное",
+            "price_rub": 1900,
+            "feature": "Без регулировки высоты",
+            "city": "Таганрог"
+          },
+          "demo-1-2-05": {
+            "category": "Кресло",
+            "category_id": "chair",
+            "title": "Кресло к письменному столу",
+            "price_rub": 1700,
+            "feature": "Регулировка высоты есть",
+            "city": "Таганрог"
+          },
+          "demo-1-2-12": {
+            "category": "Кресло",
+            "category_id": "chair",
+            "title": "Кресло для домашнего кабинета",
+            "price_rub": 4800,
+            "feature": "Без регулировки высоты",
+            "city": "Таганрог"
+          }
+        },
+        "preferences": [
+          {
+            "category": "chair",
+            "text": "удобно",
+            "attribute": null
+          },
+          {
+            "category": "chair",
+            "text": "на котором удобно сидеть моей собаке",
+            "attribute": null
+          }
+        ]
+      }
+    },
+    {
+      "query": "Какой стол подойдет для груминга собак?",
+      "step": 0,
+      "result": {
+        "response": {
+          "status": "clarify",
+          "questions": [
+            {
+              "field": "budget_rub",
+              "text": "Какой у вас максимальный бюджет на весь комплект?"
+            },
+            {
+              "field": "city_id",
+              "text": "В каком городе нужен самовывоз — Таганрог, Ростов-на-Дону или Азов?"
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1379,
+          "completion_tokens": 55,
+          "elapsed_ms": 3086,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": null
+          },
+          {
+            "label": "Бюджет",
+            "value": null
+          },
+          {
+            "label": "Состав",
+            "value": "Стол"
+          }
+        ],
+        "budget_rub": null,
+        "eligible": [],
+        "minimum_total_rub": null,
+        "items": {},
+        "preferences": [
+          {
+            "category": "table",
+            "text": "для груминга собак",
+            "attribute": null
+          }
+        ]
+      }
+    },
+    {
+      "query": "Какой стол подойдет для груминга собак?",
+      "step": 1,
+      "result": {
+        "response": {
+          "status": "ok",
+          "options": [
+            {
+              "listing_ids": [
+                "demo-1-1-11"
+              ],
+              "total_rub": 2500,
+              "explanation": "Самовывоз · Таганрог. Стол — 2 500 ₽. Итого 2 500 ₽. Запас бюджета 12 500 ₽. Назначение «для груминга собак» учтено как пожелание. Пригодность для этого использования не подтверждена структурированными характеристиками каталога."
+            },
+            {
+              "listing_ids": [
+                "demo-1-1-10"
+              ],
+              "total_rub": 2700,
+              "explanation": "Самовывоз · Таганрог. Стол — 2 700 ₽ (ширина стола 100 см). Итого 2 700 ₽. Запас бюджета 12 300 ₽. Назначение «для груминга собак» учтено как пожелание. Пригодность для этого использования не подтверждена структурированными характеристиками каталога."
+            },
+            {
+              "listing_ids": [
+                "demo-1-1-04"
+              ],
+              "total_rub": 3200,
+              "explanation": "Самовывоз · Таганрог. Стол — 3 200 ₽ (ширина стола 100 см). Итого 3 200 ₽. Запас бюджета 11 800 ₽. Назначение «для груминга собак» учтено как пожелание. Пригодность для этого использования не подтверждена структурированными характеристиками каталога."
+            }
+          ]
+        },
+        "clarification": [],
+        "trace": {
+          "model": "google/gemma-4-31B-it",
+          "prompt_tokens": 1434,
+          "completion_tokens": 61,
+          "elapsed_ms": 3368,
+          "category_source": "локальный разбор"
+        },
+        "requirements": [
+          {
+            "label": "Город самовывоза",
+            "value": "Таганрог"
+          },
+          {
+            "label": "Бюджет",
+            "value": 15000
+          },
+          {
+            "label": "Состав",
+            "value": "Стол"
+          }
+        ],
+        "budget_rub": 15000,
+        "eligible": [
+          {
+            "category": "Стол",
+            "count": 13
+          }
+        ],
+        "minimum_total_rub": 2500,
+        "items": {
+          "demo-1-1-04": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Стол на четырёх ножках, б/у",
+            "price_rub": 3200,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          },
+          "demo-1-1-10": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Небольшой стол без тумбы",
+            "price_rub": 2700,
+            "feature": "Ширина стола 100 см",
+            "city": "Таганрог"
+          },
+          "demo-1-1-11": {
+            "category": "Стол",
+            "category_id": "table",
+            "title": "Офисный стол серый",
+            "price_rub": 2500,
+            "feature": null,
+            "city": "Таганрог"
+          }
+        },
+        "preferences": [
+          {
+            "category": "table",
+            "text": "для груминга собак",
+            "attribute": null
+          }
+        ]
+      }
+    }
+  ]
+}

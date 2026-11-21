@@ -1,0 +1,44 @@
+name: Temporary Linux regression verification
+on:
+  push:
+    branches: ['codex/linux-regression-*']
+permissions:
+  contents: read
+jobs:
+  linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install test dependency
+        run: python3 -m pip install -r tests/requirements.txt
+      - name: Environment and two consecutive standard test runs
+        shell: bash
+        env:
+          PYTHONFAULTHANDLER: '1'
+        run: |
+          mkdir -p linux-verification
+          uname -a | tee linux-verification/environment.txt
+          cat /etc/os-release >> linux-verification/environment.txt
+          python3 --version >> linux-verification/environment.txt
+          git rev-parse HEAD >> linux-verification/environment.txt
+          status=0
+          for attempt in 1 2; do
+            set +e
+            timeout --signal=ABRT --kill-after=10s 180s python3 -m unittest discover -v > linux-verification/run-$attempt.txt 2>&1
+            result=$?
+            set -e
+            cat linux-verification/run-$attempt.txt
+            echo "$result" > linux-verification/run-$attempt.exit
+            if [ "$result" != 0 ]; then status=1; fi
+            ps -eo pid,ppid,stat,args > linux-verification/processes-after-$attempt.txt
+          done
+          exit "$status"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: linux-regression-results
+          path: linux-verification/

@@ -1,0 +1,48 @@
+{"text": "деревянный", "category": "table", "mode": "price", "ids": [0, 1, 2], "labels": {"2": 3, "3": 3, "4": 3}, "recall3": 0.3333333333333333, "ndcg3": 0.23463936301137825, "latency_ms": {"p50": 2.652, "p95": 4.779, "p99": 4.779}}
+{"text": "деревянный", "category": "table", "mode": "bm25", "ids": [4, 0, 1], "labels": {"2": 3, "3": 3, "4": 3}, "recall3": 0.3333333333333333, "ndcg3": 0.4692787260227565, "latency_ms": {"p50": 4.658, "p95": 6.013, "p99": 6.013}}
+{"text": "деревянный", "category": "table", "mode": "expanded", "ids": [2, 4, 0], "labels": {"2": 3, "3": 3, "4": 3}, "recall3": 0.6666666666666666, "ndcg3": 0.7653606369886218, "latency_ms": {"p50": 3.871, "p95": 4.785, "p99": 4.785}}
+{"text": "деревянный", "category": "table", "mode": "hybrid", "ids": [4, 2, 0], "labels": {"2": 3, "3": 3, "4": 3}, "recall3": 0.6666666666666666, "ndcg3": 0.7653606369886218, "latency_ms": {"p50": 4.241, "p95": 4.416, "p99": 4.416}}
+{"text": "угловой", "category": "table", "mode": "price", "ids": [0, 1, 2], "labels": {"5": 3}, "recall3": 0.0, "ndcg3": 0.0, "latency_ms": {"p50": 2.204, "p95": 2.597, "p99": 2.597}}
+{"text": "угловой", "category": "table", "mode": "bm25", "ids": [5, 0, 1], "labels": {"5": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.694, "p95": 3.105, "p99": 3.105}}
+{"text": "угловой", "category": "table", "mode": "expanded", "ids": [5, 0, 1], "labels": {"5": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 3.16, "p95": 3.366, "p99": 3.366}}
+{"text": "угловой", "category": "table", "mode": "hybrid", "ids": [5, 0, 1], "labels": {"5": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 3.114, "p95": 3.644, "p99": 3.644}}
+{"text": "письменный", "category": "table", "mode": "price", "ids": [0, 1, 2], "labels": {"6": 3}, "recall3": 0.0, "ndcg3": 0.0, "latency_ms": {"p50": 2.008, "p95": 2.231, "p99": 2.231}}
+{"text": "письменный", "category": "table", "mode": "bm25", "ids": [6, 0, 1], "labels": {"6": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 3.061, "p95": 4.377, "p99": 4.377}}
+{"text": "письменный", "category": "table", "mode": "expanded", "ids": [6, 0, 1], "labels": {"6": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 3.521, "p95": 4.093, "p99": 4.093}}
+{"text": "письменный", "category": "table", "mode": "hybrid", "ids": [6, 0, 1], "labels": {"6": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 3.733, "p95": 6.036, "p99": 6.036}}
+{"text": "из массива", "category": "table", "mode": "price", "ids": [0, 1, 2], "labels": {"3": 3}, "recall3": 0.0, "ndcg3": 0.0, "latency_ms": {"p50": 1.863, "p95": 2.807, "p99": 2.807}}
+{"text": "из массива", "category": "table", "mode": "bm25", "ids": [3, 0, 1], "labels": {"3": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.792, "p95": 3.211, "p99": 3.211}}
+{"text": "из массива", "category": "table", "mode": "expanded", "ids": [3, 0, 1], "labels": {"3": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.251, "p95": 2.745, "p99": 2.745}}
+{"text": "из массива", "category": "table", "mode": "hybrid", "ids": [3, 1, 0], "labels": {"3": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.657, "p95": 3.944, "p99": 3.944}}
+{"text": "офисное", "category": "chair", "mode": "price", "ids": [0, 1, 2], "labels": {"2": 3}, "recall3": 1.0, "ndcg3": 0.5, "latency_ms": {"p50": 1.61, "p95": 3.107, "p99": 3.107}}
+{"text": "офисное", "category": "chair", "mode": "bm25", "ids": [2, 0, 1], "labels": {"2": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.566, "p95": 3.651, "p99": 3.651}}
+{"text": "офисное", "category": "chair", "mode": "expanded", "ids": [2, 0, 1], "labels": {"2": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.35, "p95": 2.939, "p99": 2.939}}
+{"text": "офисное", "category": "chair", "mode": "hybrid", "ids": [2, 0, 6], "labels": {"2": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 4.087, "p95": 5.186, "p99": 5.186}}
+{"text": "мягкое", "category": "chair", "mode": "price", "ids": [0, 1, 2], "labels": {"3": 3, "4": 3}, "recall3": 0.0, "ndcg3": 0.0, "latency_ms": {"p50": 2.674, "p95": 3.053, "p99": 3.053}}
+{"text": "мягкое", "category": "chair", "mode": "bm25", "ids": [3, 4, 0], "labels": {"3": 3, "4": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 3.741, "p95": 5.806, "p99": 5.806}}
+{"text": "мягкое", "category": "chair", "mode": "expanded", "ids": [4, 3, 0], "labels": {"3": 3, "4": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 3.182, "p95": 3.764, "p99": 3.764}}
+{"text": "мягкое", "category": "chair", "mode": "hybrid", "ids": [4, 3, 0], "labels": {"3": 3, "4": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.709, "p95": 3.628, "p99": 3.628}}
+{"text": "эргономичное", "category": "chair", "mode": "price", "ids": [0, 1, 2], "labels": {"5": 2, "6": 3}, "recall3": 0.0, "ndcg3": 0.0, "latency_ms": {"p50": 1.807, "p95": 2.006, "p99": 2.006}}
+{"text": "эргономичное", "category": "chair", "mode": "bm25", "ids": [6, 0, 1], "labels": {"5": 2, "6": 3}, "recall3": 0.5, "ndcg3": 0.7871546029909718, "latency_ms": {"p50": 2.511, "p95": 3.156, "p99": 3.156}}
+{"text": "эргономичное", "category": "chair", "mode": "expanded", "ids": [6, 5, 0], "labels": {"5": 2, "6": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 3.258, "p95": 14.035, "p99": 14.035}}
+{"text": "эргономичное", "category": "chair", "mode": "hybrid", "ids": [6, 5, 3], "labels": {"5": 2, "6": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.777, "p95": 3.765, "p99": 3.765}}
+{"text": "садовое", "category": "chair", "mode": "price", "ids": [0, 1, 2], "labels": {"1": 3}, "recall3": 1.0, "ndcg3": 0.6309297535714575, "latency_ms": {"p50": 1.966, "p95": 2.271, "p99": 2.271}}
+{"text": "садовое", "category": "chair", "mode": "bm25", "ids": [1, 0, 2], "labels": {"1": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.473, "p95": 3.283, "p99": 3.283}}
+{"text": "садовое", "category": "chair", "mode": "expanded", "ids": [1, 0, 2], "labels": {"1": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.208, "p95": 3.485, "p99": 3.485}}
+{"text": "садовое", "category": "chair", "mode": "hybrid", "ids": [1, 2, 0], "labels": {"1": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.345, "p95": 3.082, "p99": 3.082}}
+{"text": "светодиодная", "category": "lamp", "mode": "price", "ids": [0, 1, 2], "labels": {"2": 3, "3": 3}, "recall3": 0.5, "ndcg3": 0.3065735963827292, "latency_ms": {"p50": 2.273, "p95": 3.753, "p99": 3.753}}
+{"text": "светодиодная", "category": "lamp", "mode": "bm25", "ids": [3, 0, 1], "labels": {"2": 3, "3": 3}, "recall3": 0.5, "ndcg3": 0.6131471927654584, "latency_ms": {"p50": 2.454, "p95": 3.177, "p99": 3.177}}
+{"text": "светодиодная", "category": "lamp", "mode": "expanded", "ids": [2, 3, 0], "labels": {"2": 3, "3": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.807, "p95": 3.397, "p99": 3.397}}
+{"text": "светодиодная", "category": "lamp", "mode": "hybrid", "ids": [2, 3, 0], "labels": {"2": 3, "3": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 3.22, "p95": 4.353, "p99": 4.353}}
+{"text": "настольная", "category": "lamp", "mode": "price", "ids": [0, 1, 2], "labels": {"4": 3}, "recall3": 0.0, "ndcg3": 0.0, "latency_ms": {"p50": 1.519, "p95": 1.687, "p99": 1.687}}
+{"text": "настольная", "category": "lamp", "mode": "bm25", "ids": [4, 0, 1], "labels": {"4": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.047, "p95": 3.072, "p99": 3.072}}
+{"text": "настольная", "category": "lamp", "mode": "expanded", "ids": [4, 0, 1], "labels": {"4": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 1.751, "p95": 1.796, "p99": 1.796}}
+{"text": "настольная", "category": "lamp", "mode": "hybrid", "ids": [4, 1, 0], "labels": {"4": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 1.906, "p95": 2.798, "p99": 2.798}}
+{"text": "для чтения", "category": "lamp", "mode": "price", "ids": [0, 1, 2], "labels": {"5": 3}, "recall3": 0.0, "ndcg3": 0.0, "latency_ms": {"p50": 1.457, "p95": 1.633, "p99": 1.633}}
+{"text": "для чтения", "category": "lamp", "mode": "bm25", "ids": [5, 0, 1], "labels": {"5": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 1.792, "p95": 2.19, "p99": 2.19}}
+{"text": "для чтения", "category": "lamp", "mode": "expanded", "ids": [5, 0, 1], "labels": {"5": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 2.558, "p95": 3.512, "p99": 3.512}}
+{"text": "для чтения", "category": "lamp", "mode": "hybrid", "ids": [5, 1, 0], "labels": {"5": 3}, "recall3": 1.0, "ndcg3": 1.0, "latency_ms": {"p50": 1.997, "p95": 2.456, "p99": 2.456}}
+{"text": "с питанием от ноутбука", "category": "lamp", "mode": "price", "ids": [0, 1, 2], "labels": {"6": 3}, "recall3": 0.0, "ndcg3": 0.0, "latency_ms": {"p50": 1.716, "p95": 1.872, "p99": 1.872}}
+{"text": "с питанием от ноутбука", "category": "lamp", "mode": "bm25", "ids": [0, 1, 2], "labels": {"6": 3}, "recall3": 0.0, "ndcg3": 0.0, "latency_ms": {"p50": 1.635, "p95": 1.967, "p99": 1.967}}
+{"text": "с питанием от ноутбука", "category": "lamp", "mode": "expanded", "ids": [0, 1, 2], "labels": {"6": 3}, "recall3": 0.0, "ndcg3": 0.0, "latency_ms": {"p50": 2.069, "p95": 2.669, "p99": 2.669}}
+{"text": "с питанием от ноутбука", "category": "lamp", "mode": "hybrid", "ids": [1, 0, 6], "labels": {"6": 3}, "recall3": 1.0, "ndcg3": 0.5, "latency_ms": {"p50": 2.225, "p95": 3.834, "p99": 3.834}}

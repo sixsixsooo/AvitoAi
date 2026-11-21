@@ -1,0 +1,14 @@
+test_model_semantics_preserve_state_for_unlisted_off_topic_language (tests.test_dialogue_flow.DialogueFlowTest.test_model_semantics_preserve_state_for_unlisted_off_topic_language) ... FAIL
+
+======================================================================
+FAIL: test_model_semantics_preserve_state_for_unlisted_off_topic_language (tests.test_dialogue_flow.DialogueFlowTest.test_model_semantics_preserve_state_for_unlisted_off_topic_language)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 136, in test_model_semantics_preserve_state_for_unlisted_off_topic_language
+    self.assertEqual(state.requirements, read_requirements(FACTS))
+AssertionError: Requi[53 chars]ies=(), width_cm=(Comparison(operation='lte', [67 chars]k=()) != Requi[53 chars]ies=('table', 'chair', 'lamp'), width_cm=(Comp[91 chars]k=())
+
+----------------------------------------------------------------------
+Ran 1 test in 0.041s
+
+FAILED (failures=1)

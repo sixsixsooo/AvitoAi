@@ -1,0 +1,25 @@
+PASS stale cards disappear while a new request is pending
+PASS no_match displays an explanation outside raw JSON
+PASS equal verified results are described honestly
+PASS reset button clears history, cards and evidence
+PASS typed new dialogue starts an isolated request
+FAIL lamp alternatives are individual listings Expected values to be strictly equal:
+
+false !== true
+
+FAIL one table is one listing Expected values to be strictly equal:
+
+false !== true
+
+FAIL table chair lamp remain a bundle Expected values to be strictly equal:
+
+false !== true
+
+PASS changed bundle receives a fresh result message
+FAIL unchanged results name goods and bundles separately Expected values to be strictly equal:
+
+false !== true
+
+lamp alternatives are individual listings, one table is one listing, table chair lamp remain a bundle, unchanged results name goods and bundles separately
+
+4 !== 0

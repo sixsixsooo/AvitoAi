@@ -1,0 +1,20 @@
+FAIL stale cards disappear while a new request is pending Expected values to be strictly equal:
+
+false !== true
+
+FAIL no_match displays an explanation outside raw JSON Expected values to be strictly equal:
+
+false !== true
+
+FAIL equal verified results are described honestly Expected values to be strictly equal:
+
+false !== true
+
+PASS reset button clears history, cards and evidence
+FAIL typed new dialogue starts an isolated request Expected values to be strictly equal:
+
+3 !== 1
+
+stale cards disappear while a new request is pending, no_match displays an explanation outside raw JSON, equal verified results are described honestly, typed new dialogue starts an isolated request
+
+4 !== 0

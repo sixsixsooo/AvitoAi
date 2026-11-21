@@ -1,0 +1,15 @@
+test_stage_timings_exclude_gemma_from_search_and_log_no_input (tests.test_dialogue_flow.DialogueFlowTest.test_stage_timings_exclude_gemma_from_search_and_log_no_input) ... ERROR
+
+======================================================================
+ERROR: test_stage_timings_exclude_gemma_from_search_and_log_no_input (tests.test_dialogue_flow.DialogueFlowTest.test_stage_timings_exclude_gemma_from_search_and_log_no_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\hacaton\cyber-garden\tests\test_dialogue_flow.py", line 337, in test_stage_timings_exclude_gemma_from_search_and_log_no_input
+    header = self.last_headers["Server-Timing"]
+             ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'Server-Timing'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.171s
+
+FAILED (errors=1)

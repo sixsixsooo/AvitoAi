@@ -1,0 +1,52 @@
+{
+  "checked_at_utc": "2026-11-21T02:13:31.138574+00:00",
+  "environment": "Windows-11-10.0.26300-SP0",
+  "status": "not_run",
+  "real_opensearch_used": false,
+  "required_version": "3.3.2",
+  "server_version": null,
+  "requested_endpoint": "http://127.0.0.1:19200",
+  "runtime_detection": {
+    "commands_found": [],
+    "services_found": [],
+    "processes_found": [],
+    "standard_docker_executable_found": false,
+    "standard_podman_executable_found": false,
+    "program_files_executable_search_found": [],
+    "checked_outside_sandbox": true
+  },
+  "http_probe": {
+    "reachable": false,
+    "status": null,
+    "error": "Local HTTP probe timed out (2 seconds), including outside sandbox"
+  },
+  "catalog_local_validation": {
+    "path": "data/catalog.json",
+    "records": 111,
+    "imported": false
+  },
+  "index_name": null,
+  "index_count": null,
+  "mappings": null,
+  "russian_analyzer": null,
+  "queries": [],
+  "actual_aggregations": [],
+  "web_api_with_opensearch": {
+    "status": "not_run",
+    "reason": "No real OpenSearch server available"
+  },
+  "errors": [
+    "Docker/Podman unavailable in this environment; OpenSearch 3.3.2 could not be started",
+    "127.0.0.1:19200 did not answer the real HTTP probe"
+  ],
+  "cleanup": {
+    "index_created": false,
+    "index_deleted": false,
+    "gzip_created": false,
+    "gzip_deleted": false,
+    "server_started": false,
+    "server_stopped": false,
+    "permanent_data_modified": false
+  },
+  "mock_substitution": false
+}

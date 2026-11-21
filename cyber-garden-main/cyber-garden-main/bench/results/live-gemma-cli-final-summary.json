@@ -1,0 +1,1856 @@
+{
+  "started_at_utc": "2026-11-21T03:04:05.531193+00:00",
+  "team": "team-06",
+  "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+  "model": "google/gemma-4-31B-it",
+  "configuration_source": "root .env",
+  "planned": 21,
+  "executed": 21,
+  "passed": 21,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "граница бюджета и ширины",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "В Таганроге нужен только стол, ширина ровно 1 м. Бюджет 3 500 ₽."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "t100"
+            ],
+            "total_rub": 3500,
+            "explanation": "Самовывоз · Таганрог. Стол — 3 500 ₽ (ширина стола 100 см). Итого 3 500 ₽. Ровно в пределах бюджета."
+          }
+        ]
+      },
+      "elapsed_s": 3.125,
+      "wall_s": 3.125,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:04:06.072280+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:04:06.045282+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":3500,\"categories\":[\"table\"],\"width_cm\":[[\"eq\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RlbouodudAqAuhLnK8jum48b",
+            "object": "chat.completion",
+            "created": 1795230249,
+            "usage": {
+              "prompt_tokens": 1132,
+              "completion_tokens": 51,
+              "total_tokens": 1183,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2594.497
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 3500,
+            "categories": [
+              "table"
+            ],
+            "width_cm": [
+              {
+                "operation": "eq",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "строгая граница",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "В Таганроге стол уже 100 см, до 15 тысяч."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "t80"
+            ],
+            "total_rub": 2700,
+            "explanation": "Самовывоз · Таганрог. Стол — 2 700 ₽ (ширина стола 80 см). Итого 2 700 ₽. Запас бюджета 12 300 ₽."
+          },
+          {
+            "listing_ids": [
+              "tFake"
+            ],
+            "total_rub": 14000,
+            "explanation": "Самовывоз · Таганрог. Стол — 14 000 ₽ (ширина стола 90 см). Итого 14 000 ₽. Запас бюджета 1 000 ₽."
+          }
+        ]
+      },
+      "elapsed_s": 2.89000000001397,
+      "wall_s": 2.89000000001397,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:04:13.016303+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:04:12.992304+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\"],\"width_cm\":[[\"lt\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RuYmhVRVjkedHRpy3vjuRA0Q",
+            "object": "chat.completion",
+            "created": 1795230255,
+            "usage": {
+              "prompt_tokens": 1124,
+              "completion_tokens": 52,
+              "total_tokens": 1176,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2403.508
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table"
+            ],
+            "width_cm": [
+              {
+                "operation": "lt",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "интервал и исключённые границы",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Стол шире 1 м, но меньше 1,1 м, Таганрог, до 4000 рублей."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "t105"
+            ],
+            "total_rub": 3300,
+            "explanation": "Самовывоз · Таганрог. Стол — 3 300 ₽ (ширина стола 105 см). Итого 3 300 ₽. Запас бюджета 700 ₽."
+          }
+        ]
+      },
+      "elapsed_s": 2.7810000000172295,
+      "wall_s": 2.7810000000172295,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:04:20.049415+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:04:20.025412+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":4000,\"categories\":[\"table\"],\"width_cm\":[[\"gt\",100],[\"lt\",110]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RlQR8ayZ6nCymCqid2vFpeKa",
+            "object": "chat.completion",
+            "created": 1795230262,
+            "usage": {
+              "prompt_tokens": 1133,
+              "completion_tokens": 58,
+              "total_tokens": 1191,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2263.383
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 4000,
+            "categories": [
+              "table"
+            ],
+            "width_cm": [
+              {
+                "operation": "gt",
+                "value": "100"
+              },
+              {
+                "operation": "lt",
+                "value": "110.0"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "три характеристики и общий бюджет",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Стол 80–100 см, кресло с регулировкой высоты и лампу на 3000 К в Таганроге. На всё 5500 ₽."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "t80",
+              "cAdj",
+              "l3000"
+            ],
+            "total_rub": 5400,
+            "explanation": "Самовывоз · Таганрог. Стол — 2 700 ₽ (ширина стола 80 см), Кресло — 2 000 ₽ (регулировка высоты есть), Лампа — 700 ₽ (температура света 3000 к). Итого 5 400 ₽. Запас бюджета 100 ₽."
+          }
+        ]
+      },
+      "elapsed_s": 2.4690000000118744,
+      "wall_s": 2.4690000000118744,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:04:27.032789+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:04:27.007790+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":5500,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"gte\",80],[\"lte\",100]],\"adjustable_height\":true,\"color_temperature_k\":[[\"eq\",3000]],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RVPUiXych1GH4VvEWDV26k5n",
+            "object": "chat.completion",
+            "created": 1795230269,
+            "usage": {
+              "prompt_tokens": 1152,
+              "completion_tokens": 69,
+              "total_tokens": 1221,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 1978.379
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 5500,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "gte",
+                "value": "80"
+              },
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": true,
+            "color_temperature_k": [
+              {
+                "operation": "eq",
+                "value": "3000"
+              }
+            ]
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "false и неизвестное значение",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Нужно кресло без регулировки по высоте в Таганроге на полторы тысячи."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "cFixed"
+            ],
+            "total_rub": 1500,
+            "explanation": "Самовывоз · Таганрог. Кресло — 1 500 ₽ (без регулировки высоты). Итого 1 500 ₽. Ровно в пределах бюджета."
+          }
+        ]
+      },
+      "elapsed_s": 2.1560000000172295,
+      "wall_s": 2.1560000000172295,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:04:34.000485+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:04:33.976460+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":1500,\"categories\":[\"chair\"],\"width_cm\":[],\"adjustable_height\":false,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R2uMAQ5LPwDvIbpX0Nuw1C4s",
+            "object": "chat.completion",
+            "created": 1795230276,
+            "usage": {
+              "prompt_tokens": 1124,
+              "completion_tokens": 44,
+              "total_tokens": 1168,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 1697.938
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 1500,
+            "categories": [
+              "chair"
+            ],
+            "width_cm": [],
+            "adjustable_height": false,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "неизвестное значение допустимо без условия",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "В Таганроге подбери кресло, 1000 рублей, регулировка не важна."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "cUnknown"
+            ],
+            "total_rub": 800,
+            "explanation": "Самовывоз · Таганрог. Кресло — 800 ₽. Итого 800 ₽. Запас бюджета 200 ₽."
+          }
+        ]
+      },
+      "elapsed_s": 3.01500000001397,
+      "wall_s": 3.01500000001397,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:04:41.050483+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:04:41.024513+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":1000,\"categories\":[\"chair\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RoqB4iLjNSiieRif8BpmQ0fV",
+            "object": "chat.completion",
+            "created": 1795230284,
+            "usage": {
+              "prompt_tokens": 1129,
+              "completion_tokens": 44,
+              "total_tokens": 1173,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2509.297
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 1000,
+            "categories": [
+              "chair"
+            ],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "все основные поля отсутствуют",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Помоги с покупкой."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "clarify",
+        "questions": [
+          {
+            "field": "budget_rub",
+            "text": "Какой у вас максимальный бюджет на весь комплект?"
+          },
+          {
+            "field": "city_id",
+            "text": "В каком городе нужен самовывоз — Таганрог, Ростов-на-Дону или Азов?"
+          },
+          {
+            "field": "categories",
+            "text": "Что подобрать из каталога — стол, кресло или лампу? Можно выбрать несколько."
+          }
+        ]
+      },
+      "elapsed_s": 2.797000000020489,
+      "wall_s": 2.797000000020489,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:04:48.012298+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:04:47.988295+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":null,\"budget_rub\":null,\"categories\":null,\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RNdDZzx4elZmBUS6J219DbSE",
+            "object": "chat.completion",
+            "created": 1795230290,
+            "usage": {
+              "prompt_tokens": 1100,
+              "completion_tokens": 39,
+              "total_tokens": 1139,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2305.697
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": null,
+            "budget_rub": null,
+            "categories": [],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "только бюджет отсутствует",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Стол не шире метра, кресло и лампа. Таганрог."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "clarify",
+        "questions": [
+          {
+            "field": "budget_rub",
+            "text": "Какой у вас максимальный бюджет на весь комплект?"
+          }
+        ]
+      },
+      "elapsed_s": 3.75,
+      "wall_s": 3.76500000001397,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:04:55.022421+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:04:54.998397+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":null,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RF7hntHjefw7pWSXphlIPHDs",
+            "object": "chat.completion",
+            "created": 1795230298,
+            "usage": {
+              "prompt_tokens": 1126,
+              "completion_tokens": 52,
+              "total_tokens": 1178,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 3276.961
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": null,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "короткий ответ на уточнение",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Стол не шире метра в Азове."
+          },
+          {
+            "role": "assistant",
+            "text": "Какой у вас максимальный бюджет на весь комплект?"
+          },
+          {
+            "role": "user",
+            "text": "Две тысячи."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "azTable"
+            ],
+            "total_rub": 2000,
+            "explanation": "Самовывоз · Азов. Стол — 2 000 ₽ (ширина стола 100 см). Итого 2 000 ₽. Ровно в пределах бюджета."
+          }
+        ]
+      },
+      "elapsed_s": 5.547000000020489,
+      "wall_s": 5.547000000020489,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:05:02.047045+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:05:02.022757+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":2000,\"categories\":[\"table\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RNGlz2poXL9lO8xhxJ5p6XNr",
+            "object": "chat.completion",
+            "created": 1795230307,
+            "usage": {
+              "prompt_tokens": 1140,
+              "completion_tokens": 50,
+              "total_tokens": 1190,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 5036.21
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "azov",
+            "budget_rub": 2000,
+            "categories": [
+              "table"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "новый город и бюджет сохраняет состав",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Стол до 100 см и кресло, Таганрог, до 5 тыс."
+          },
+          {
+            "role": "assistant",
+            "text": "Подобрал вариант за 4200 ₽."
+          },
+          {
+            "role": "user",
+            "text": "Лучше в Азове и максимум 3200."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "azTable",
+              "azChair"
+            ],
+            "total_rub": 3200,
+            "explanation": "Самовывоз · Азов. Стол — 2 000 ₽ (ширина стола 100 см), Кресло — 1 200 ₽ (без регулировки высоты). Итого 3 200 ₽. Ровно в пределах бюджета."
+          }
+        ]
+      },
+      "elapsed_s": 3.062000000005355,
+      "wall_s": 3.062000000005355,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:05:09.025535+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:05:09.001175+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":3200,\"categories\":[\"table\",\"chair\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RcIdamyJTUms8OY9GOi8UONk",
+            "object": "chat.completion",
+            "created": 1795230312,
+            "usage": {
+              "prompt_tokens": 1165,
+              "completion_tokens": 52,
+              "total_tokens": 1217,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2567.107
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "azov",
+            "budget_rub": 3200,
+            "categories": [
+              "table",
+              "chair"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "исключение категории и смена характеристики",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Кресло с регулировкой и лампу хотя бы 3000 К. Бюджет 3000, Таганрог."
+          },
+          {
+            "role": "assistant",
+            "text": "Есть варианты."
+          },
+          {
+            "role": "user",
+            "text": "Лампа больше не нужна, а кресло — с фиксированной высотой."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "cFixed"
+            ],
+            "total_rub": 1500,
+            "explanation": "Самовывоз · Таганрог. Кресло — 1 500 ₽ (без регулировки высоты). Итого 1 500 ₽. Запас бюджета 1 500 ₽."
+          }
+        ]
+      },
+      "elapsed_s": 3.8280000000086147,
+      "wall_s": 3.8280000000086147,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:05:16.012033+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:05:15.987030+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":3000,\"categories\":[\"chair\"],\"width_cm\":[],\"adjustable_height\":false,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R3pc37QaBxoRQHdETZPdIklU",
+            "object": "chat.completion",
+            "created": 1795230319,
+            "usage": {
+              "prompt_tokens": 1166,
+              "completion_tokens": 44,
+              "total_tokens": 1210,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 3358.13
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 3000,
+            "categories": [
+              "chair"
+            ],
+            "width_cm": [],
+            "adjustable_height": false,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "уточнение после дублей ассистента",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "В Ростове-на-Дону нужна лампа на 4000 К."
+          },
+          {
+            "role": "assistant",
+            "text": "Какой у вас бюджет на весь комплект?"
+          },
+          {
+            "role": "user",
+            "text": "1200"
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "rdLamp"
+            ],
+            "total_rub": 1200,
+            "explanation": "Самовывоз · Ростов-на-Дону. Лампа — 1 200 ₽ (температура света 4000 к). Итого 1 200 ₽. Ровно в пределах бюджета."
+          }
+        ]
+      },
+      "elapsed_s": 2.7810000000172295,
+      "wall_s": 2.7810000000172295,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:05:23.004023+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:05:22.980020+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"rostov-na-donu\",\"budget_rub\":1200,\"categories\":[\"lamp\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[[\"eq\",4000]],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-ROal3bUxVZlo7IjguU51MvLD",
+            "object": "chat.completion",
+            "created": 1795230325,
+            "usage": {
+              "prompt_tokens": 1147,
+              "completion_tokens": 56,
+              "total_tokens": 1203,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2306.969
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "rostov-na-donu",
+            "budget_rub": 1200,
+            "categories": [
+              "lamp"
+            ],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": [
+              {
+                "operation": "eq",
+                "value": "4000"
+              }
+            ]
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "неподдерживаемые город и категория",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Нужны кресло и диван в Краснодаре до 15 тыс."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "clarify",
+        "questions": [
+          {
+            "field": "city_id",
+            "text": "В каком городе нужен самовывоз — Таганрог, Ростов-на-Дону или Азов?"
+          },
+          {
+            "field": "categories",
+            "text": "Что подобрать из каталога — стол, кресло или лампу? Можно выбрать несколько."
+          }
+        ]
+      },
+      "elapsed_s": 2.312000000005355,
+      "wall_s": 2.312000000005355,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:05:30.051469+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:05:30.025355+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":null,\"budget_rub\":15000,\"categories\":null,\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R7HtQDLR6JwD23IfFB0xepql",
+            "object": "chat.completion",
+            "created": 1795230332,
+            "usage": {
+              "prompt_tokens": 1110,
+              "completion_tokens": 43,
+              "total_tokens": 1153,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 1794.855
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": null,
+            "budget_rub": 15000,
+            "categories": [],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [
+            "categories",
+            "city_id"
+          ],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "неоднозначный город",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Лампа до 2 тысяч, город Таганрог или Азов."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "clarify",
+        "questions": [
+          {
+            "field": "city_id",
+            "text": "В каком городе нужен самовывоз — Таганрог, Ростов-на-Дону или Азов?"
+          }
+        ]
+      },
+      "elapsed_s": 2.2190000000118744,
+      "wall_s": 2.2190000000118744,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:05:37.012268+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:05:36.987241+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":null,\"budget_rub\":2000,\"categories\":[\"lamp\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-Rfp1iWp8VltIWnSLC4aDuG2L",
+            "object": "chat.completion",
+            "created": 1795230339,
+            "usage": {
+              "prompt_tokens": 1109,
+              "completion_tokens": 42,
+              "total_tokens": 1151,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 1763.18
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": null,
+            "budget_rub": 2000,
+            "categories": [
+              "lamp"
+            ],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "нет совпадений по цене",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Стол до 100 см в Азове, бюджет 0 ₽."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "no_match",
+        "message": "В городе Азов самый доступный полный комплект с вашими характеристиками стоит 2 000 ₽. До него не хватает 2 000 ₽. Можно увеличить бюджет до этой суммы или изменить одно из требований. Что вам удобнее?"
+      },
+      "elapsed_s": 3.73499999998603,
+      "wall_s": 3.73499999998603,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:05:44.037678+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:05:44.011682+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":0,\"categories\":[\"table\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RdmkRXGA8QdjBz2iibm8Z4bZ",
+            "object": "chat.completion",
+            "created": 1795230347,
+            "usage": {
+              "prompt_tokens": 1123,
+              "completion_tokens": 47,
+              "total_tokens": 1170,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 3196.914
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "azov",
+            "budget_rub": 0,
+            "categories": [
+              "table"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "нет совпадений по характеристике",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Лампа 4500 К в Азове. До 20 000 ₽."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "no_match",
+        "message": "Город самовывоза — Азов. Для «Лампа» нет подтверждённого соответствия условию «температура света = 4500 К» (ближайшее подтверждённое значение: 3300 К). Какую характеристику можно изменить или рассмотреть другой город?"
+      },
+      "elapsed_s": 3.2660000000032596,
+      "wall_s": 3.2660000000032596,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:05:51.039507+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:05:51.014507+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":20000,\"categories\":[\"lamp\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[[\"eq\",4500]],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RRRN4htUpq0FYwzZEoEjhEj3",
+            "object": "chat.completion",
+            "created": 1795230354,
+            "usage": {
+              "prompt_tokens": 1129,
+              "completion_tokens": 52,
+              "total_tokens": 1181,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2779.159
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "azov",
+            "budget_rub": 20000,
+            "categories": [
+              "lamp"
+            ],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": [
+              {
+                "operation": "eq",
+                "value": "4500"
+              }
+            ]
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "город вне справочника заменяет старый",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Нужен стол в Ростове-на-Дону до 4 тысяч."
+          },
+          {
+            "role": "assistant",
+            "text": "В городе есть вариант за 1 700 ₽."
+          },
+          {
+            "role": "user",
+            "text": "Теперь в Москве."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "clarify",
+        "questions": [
+          {
+            "field": "city_id",
+            "text": "В каком городе нужен самовывоз — Таганрог, Ростов-на-Дону или Азов?"
+          }
+        ]
+      },
+      "elapsed_s": 2.60999999998603,
+      "wall_s": 2.60999999998603,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:05:58.027866+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:05:58.003146+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":null,\"budget_rub\":4000,\"categories\":[\"table\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RSmzuPuubK5DAVywatuaPqLn",
+            "object": "chat.completion",
+            "created": 1795230360,
+            "usage": {
+              "prompt_tokens": 1149,
+              "completion_tokens": 42,
+              "total_tokens": 1191,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2139.309
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": null,
+            "budget_rub": 4000,
+            "categories": [
+              "table"
+            ],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [
+            "city_id"
+          ],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "добавление категории и снятие ограничения",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Лампа от 4000 К, Азов, до 4 тысяч."
+          },
+          {
+            "role": "assistant",
+            "text": "При таких параметрах вариантов нет."
+          },
+          {
+            "role": "user",
+            "text": "Температура не важна, добавь стол."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "azTable",
+              "azLamp"
+            ],
+            "total_rub": 2500,
+            "explanation": "Самовывоз · Азов. Стол — 2 000 ₽ (ширина стола 100 см), Лампа — 500 ₽ (температура света 3300 к). Итого 2 500 ₽. Запас бюджета 1 500 ₽."
+          }
+        ]
+      },
+      "elapsed_s": 4.187999999994645,
+      "wall_s": 4.187999999994645,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:06:05.039852+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:06:05.013850+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"azov\",\"budget_rub\":4000,\"categories\":[\"lamp\",\"table\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R6SoOpMhWFwlMSPPOFpso4NU",
+            "object": "chat.completion",
+            "created": 1795230369,
+            "usage": {
+              "prompt_tokens": 1153,
+              "completion_tokens": 45,
+              "total_tokens": 1198,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 3706.43
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "azov",
+            "budget_rub": 4000,
+            "categories": [
+              "table",
+              "lamp"
+            ],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "неоднозначное число не бюджет и не ширина",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Стол. До 100. Таганрог."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "clarify",
+        "questions": [
+          {
+            "field": "budget_rub",
+            "text": "Какой у вас максимальный бюджет на весь комплект?"
+          }
+        ]
+      },
+      "elapsed_s": 2.2969999999913853,
+      "wall_s": 2.312999999994645,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:06:12.057164+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:06:12.027165+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":null,\"categories\":[\"table\"],\"width_cm\":[],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-R9OpQTaNc9jIxlMRWHdNO1Bo",
+            "object": "chat.completion",
+            "created": 1795230374,
+            "usage": {
+              "prompt_tokens": 1118,
+              "completion_tokens": 41,
+              "total_tokens": 1159,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 1800.829
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": null,
+            "categories": [
+              "table"
+            ],
+            "width_cm": [],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [
+            "width_cm"
+          ],
+          "ambiguous_attributes": [
+            "width_cm"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "01-selection",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Стол не шире метра, кресло и лампа. Таганрог. До 15 000 ₽ за всё."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "ok",
+        "options": [
+          {
+            "listing_ids": [
+              "demo-1-1-10",
+              "demo-1-2-05",
+              "demo-1-3-04"
+            ],
+            "total_rub": 4900,
+            "explanation": "Самовывоз · Таганрог. Стол — 2 700 ₽ (ширина стола 100 см), Кресло — 1 700 ₽ (регулировка высоты есть), Лампа — 500 ₽ (температура света 5000 к). Итого 4 900 ₽. Запас бюджета 10 100 ₽."
+          },
+          {
+            "listing_ids": [
+              "demo-1-1-10",
+              "demo-1-2-05",
+              "demo-1-3-09"
+            ],
+            "total_rub": 5000,
+            "explanation": "Самовывоз · Таганрог. Стол — 2 700 ₽ (ширина стола 100 см), Кресло — 1 700 ₽ (регулировка высоты есть), Лампа — 600 ₽ (температура света 5000 к). Итого 5 000 ₽. Запас бюджета 10 000 ₽."
+          },
+          {
+            "listing_ids": [
+              "demo-1-1-10",
+              "demo-1-2-05",
+              "demo-1-3-01"
+            ],
+            "total_rub": 5050,
+            "explanation": "Самовывоз · Таганрог. Стол — 2 700 ₽ (ширина стола 100 см), Кресло — 1 700 ₽ (регулировка высоты есть), Лампа — 650 ₽. Итого 5 050 ₽. Запас бюджета 9 950 ₽."
+          }
+        ]
+      },
+      "elapsed_s": 3.0469999999913853,
+      "wall_s": 3.0469999999913853,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:06:19.042560+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:06:19.018558+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":15000,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-RWUzWDAlIwHj8b1NQJ9ljpoM",
+            "object": "chat.completion",
+            "created": 1795230382,
+            "usage": {
+              "prompt_tokens": 1138,
+              "completion_tokens": 56,
+              "total_tokens": 1194,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2555.346
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": 15000,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    },
+    {
+      "name": "02-clarification",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "text": "Стол не шире метра, кресло и лампа. Таганрог."
+          }
+        ]
+      },
+      "real_gemma": true,
+      "passed": true,
+      "response": {
+        "status": "clarify",
+        "questions": [
+          {
+            "field": "budget_rub",
+            "text": "Какой у вас максимальный бюджет на весь комплект?"
+          }
+        ]
+      },
+      "elapsed_s": 3.1410000000032596,
+      "wall_s": 3.1410000000032596,
+      "gateway_events": [
+        {
+          "kind": "http_attempt",
+          "utc": "2026-11-21T03:06:26.055343+00:00",
+          "url": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1/chat/completions",
+          "status": 200
+        },
+        {
+          "kind": "model_response",
+          "utc": "2026-11-21T03:06:26.030367+00:00",
+          "success": true,
+          "response": {
+            "model": "google/gemma-4-31B-it",
+            "choices": [
+              {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                  "role": "assistant",
+                  "content": "{\"city_id\":\"taganrog\",\"budget_rub\":null,\"categories\":[\"table\",\"chair\",\"lamp\"],\"width_cm\":[[\"lte\",100]],\"adjustable_height\":null,\"color_temperature_k\":[],\"preferences\":[]}"
+                }
+              }
+            ],
+            "id": "chatcmpl-Rd5jfSE2Ik5mvlWhwRxYqslV",
+            "object": "chat.completion",
+            "created": 1795230389,
+            "usage": {
+              "prompt_tokens": 1126,
+              "completion_tokens": 52,
+              "total_tokens": 1178,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "gateway_ms": 2639.182
+        },
+        {
+          "kind": "resolved_state",
+          "requirements": {
+            "city_id": "taganrog",
+            "budget_rub": null,
+            "categories": [
+              "table",
+              "chair",
+              "lamp"
+            ],
+            "width_cm": [
+              {
+                "operation": "lte",
+                "value": "100"
+              }
+            ],
+            "adjustable_height": null,
+            "color_temperature_k": []
+          },
+          "preferences": [],
+          "unresolved": [],
+          "ambiguous_attributes": []
+        }
+      ]
+    }
+  ]
+}

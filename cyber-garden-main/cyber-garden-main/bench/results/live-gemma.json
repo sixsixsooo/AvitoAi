@@ -1,0 +1,93 @@
+{
+  "finished_at_utc": "2026-11-21T01:49:39.160713+00:00",
+  "started_at_utc": "2026-11-21T01:29:26.194642+00:00",
+  "model": "google/gemma-4-31B-it",
+  "endpoint": "https://sfedu-hackathon-ai-gateway.sfedu-hackathon-ai-gateway.workers.dev/v1",
+  "configuration_source": "root .env",
+  "offline": {
+    "real_gemma": false,
+    "original_tests": 92,
+    "current_tests": 96,
+    "elapsed_s": 46.892,
+    "passed": true
+  },
+  "real_smoke": {
+    "success": true,
+    "elapsed_ms": 6984
+  },
+  "real_cli": {
+    "initial": {
+      "passed": 19,
+      "executed": 20
+    },
+    "recheck": {
+      "passed": 20,
+      "executed": 20
+    },
+    "full_run_latency_ms": {
+      "p50": 3469.0,
+      "p95": 8922.0,
+      "p99": 35469.0
+    }
+  },
+  "real_quality": {
+    "unique_cases": 36,
+    "initial_passed": 34,
+    "initial_requirements_passed": 35,
+    "initial_preferences_passed": 35,
+    "rechecked": 2,
+    "recheck_passed": 2,
+    "effective_passed_after_targeted_rechecks": 36,
+    "local_search_ms": {
+      "p50": 0.07,
+      "p95": 6.64,
+      "p99": 11.666
+    },
+    "note": "36 initial cases plus targeted rechecks; not a second full 36-case run"
+  },
+  "real_web": {
+    "real_requests": 7,
+    "real_generations": 7,
+    "passed": 9,
+    "failed": [],
+    "frontend_secret_absent": true,
+    "http_502_source": "local request-size validation before transmission",
+    "dialogue_wall_ms_including_pacing": 45139.76130000083
+  },
+  "latency_benchmark": {
+    "successes": 10,
+    "failures": 0,
+    "latency_ms": {
+      "p50": 2796.672,
+      "p95": 4659.914,
+      "p99": 4659.914
+    },
+    "prompt_tokens": 11402,
+    "completion_tokens": 534,
+    "total_dialogue_ms": 31307.99999998999
+  },
+  "all_real_calls": {
+    "http_attempts": 96,
+    "successful_generations": 96,
+    "observed_http_errors": [],
+    "max_observed_attempts_in_60s_excluding_smoke": 9,
+    "prompt_tokens": 109059,
+    "completion_tokens": 4888
+  },
+  "schema_errors": [],
+  "credential_scan": {
+    "ignored_env": true,
+    "leaking_files": []
+  },
+  "fixes": [
+    "maximum budget modifier misclassified as an item",
+    "comparison after conjunction misclassified as an item",
+    "literal misspelled computer preference lost after model spelling correction",
+    "direct latency-script import shadowed llm.client"
+  ],
+  "limitations": [
+    "HTTP 502 web path exercised by local size validation, not an induced cloud outage",
+    "OpenSearch not contacted in this real Gemma audit",
+    "No real 401/403/429 cloud response was forced"
+  ]
+}
